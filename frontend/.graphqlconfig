@@ -1,0 +1,16 @@
+{
+  "name": "Hasura GraphQL",
+  "schemaPath": "graphql/graphql.schema.json",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "http://localhost:8080/v1/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "x-hasura-admin-secret": "HASURA-ADMIN-SECRET-DEVELOPMENT"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+table:
+  name: translation
+  schema: public
+object_relationships:
+- name: line
+  using:
+    foreign_key_constraint_on: line_id
+- name: locale
+  using:
+    foreign_key_constraint_on: locale_id
+- name: project
+  using:
+    foreign_key_constraint_on: project_id
+- name: user
+  using:
+    foreign_key_constraint_on: user_username
+array_relationships:
+- name: translation_comments
+  using:
+    foreign_key_constraint_on:
+      column: translation_id
+      table:
+        name: translation_comment
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - line_id
+    - created_at
+    - updated_at
+    - project_id
+    - locale_id
+    - value
+    - user_username
+    filter: {}
+  role: user

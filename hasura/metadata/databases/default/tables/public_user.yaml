@@ -1,0 +1,97 @@
+table:
+  name: user
+  schema: public
+object_relationships:
+- name: private_info
+  using:
+    manual_configuration:
+      column_mapping:
+        username: username
+      insertion_order: null
+      remote_table:
+        name: user_private
+        schema: public
+array_relationships:
+- name: events
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: event
+        schema: public
+- name: notifications
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: notification
+        schema: public
+- name: password_resets
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: password_reset
+        schema: public
+- name: project_users
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: project_user
+        schema: public
+- name: translation_comments
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: translation_comment
+        schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: user_username
+      table:
+        name: translation
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - active
+    - avatar
+    - cell
+    - city
+    - country
+    - created_at
+    - email
+    - first_name
+    - id
+    - job_title
+    - last_name
+    - theme_name
+    - updated_at
+    - username
+    filter: {}
+  role: user
+update_permissions:
+- permission:
+    check:
+      username:
+        _eq: X-Hasura-User-Id
+    columns:
+    - active
+    - avatar
+    - cell
+    - city
+    - country
+    - email
+    - first_name
+    - job_title
+    - last_name
+    - password
+    - theme_name
+    - username
+    filter:
+      username:
+        _eq: X-Hasura-User-Id
+  role: user

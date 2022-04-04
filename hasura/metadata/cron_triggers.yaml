@@ -1,0 +1,7 @@
+- name: clean_password_tokens
+  webhook: http://localhost:3000/api/webhooks/clear-password-tokens
+  schedule: 0 0 * * *
+  include_in_metadata: true
+  payload:
+    token: this-is-our-secret-token
+  comment: Once a day go out and clean all the password reset tokens over a day old.

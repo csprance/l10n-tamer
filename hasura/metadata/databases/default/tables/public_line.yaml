@@ -1,0 +1,27 @@
+table:
+  name: line
+  schema: public
+object_relationships:
+- name: project
+  using:
+    foreign_key_constraint_on: project_id
+array_relationships:
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: line_id
+      table:
+        name: translation
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - project_id
+    - key
+    - context_comment
+    filter: {}
+  role: user

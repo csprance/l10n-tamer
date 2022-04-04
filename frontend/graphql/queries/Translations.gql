@@ -1,0 +1,33 @@
+query TranslationsByProjectIDAndLocale(
+  $project_id: Int = -1
+  $locale: String = "en_US"
+) {
+  translation(
+    where: {
+      project_id: { _eq: $project_id }
+      locale: { locale: { _eq: $locale } }
+    }
+  ) {
+    line {
+      key
+    }
+    value
+    id
+  }
+}
+
+# query TranslationsByProjectIDAndLocale($project_id: Int = 10, $locale: String = "") {
+#   translation(where: {project_id: {_eq: $project_id}, locale: {locale: {_eq: $locale}}}) {
+#     line {
+#       key
+#       context_comment
+#     }
+#     value
+#
+#     id
+#     user {
+#       username
+#     }
+#     created_at
+#   }
+# }

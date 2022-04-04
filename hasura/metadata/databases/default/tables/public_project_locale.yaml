@@ -1,0 +1,21 @@
+table:
+  name: project_locale
+  schema: public
+object_relationships:
+- name: locale
+  using:
+    foreign_key_constraint_on: locale_id
+- name: project
+  using:
+    foreign_key_constraint_on: project_id
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - project_id
+    - locale_id
+    - active
+    filter: {}
+  role: user

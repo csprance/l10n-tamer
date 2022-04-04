@@ -1,0 +1,12 @@
+table:
+  name: user_private
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - password
+    - username
+    filter:
+      username:
+        _eq: X-Hasura-User-Id
+  role: user

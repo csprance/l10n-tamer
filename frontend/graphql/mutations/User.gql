@@ -1,0 +1,54 @@
+mutation UpdateUserTheme($username: String = "", $theme_name: String = "") {
+  update_user(
+    where: { username: { _eq: $username } }
+    _set: { theme_name: $theme_name }
+  ) {
+    returning {
+      theme_name
+    }
+  }
+}
+
+# mutation AddPermissionGroupToUser(
+#   $permission_group_name: String = ""
+#   $user_name: String = ""
+# ) {
+#   insert_permissions_group_users(
+#     objects: {
+#       permission_group_name: $permission_group_name
+#       user_name: $user_name
+#     }
+#   ) {
+#     returning {
+#       id
+#       permission_group_name
+#       user_name
+#     }
+#   }
+# }
+
+mutation RegisterUser($user: user_insert_input = {}) {
+  insert_user_one(object: $user) {
+    username
+    avatar
+    active
+  }
+}
+
+mutation UpdateUserPassword($username: String = "", $password: String = "") {
+  update_user_by_pk(
+    pk_columns: { username: $username }
+    _set: { password: $password }
+  ) {
+    updated_at
+  }
+}
+
+mutation UpdateUserActive($username: String = "", $active: Boolean = false) {
+  update_user_by_pk(
+    pk_columns: { username: $username }
+    _set: { active: $active }
+  ) {
+    active
+  }
+}

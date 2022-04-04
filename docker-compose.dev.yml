@@ -1,0 +1,8 @@
+services:
+  postgres:
+    ports:
+      - "5432:5432"
+  graphql-engine:
+    environment:
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"

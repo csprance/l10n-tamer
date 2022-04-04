@@ -1,0 +1,4 @@
+table:
+  name: EventType
+  schema: public
+is_enum: true

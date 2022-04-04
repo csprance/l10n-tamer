@@ -1,0 +1,9 @@
+subscription EventsByUserUsername($user_username: String = "") {
+  event(where: { user_username: { _eq: $user_username } }) {
+    meta
+    event_type
+    created_at
+    summary
+    id
+  }
+}

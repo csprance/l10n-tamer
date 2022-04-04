@@ -1,0 +1,12 @@
+query LocaleNameByLocaleCode($localeCode: String = "") {
+  locale(where: { locale: { _eq: $localeCode } }) {
+    name
+  }
+}
+
+query AllLocalesList($limit: Int = 50) {
+  locale(limit: $limit) {
+    name
+    locale
+  }
+}

@@ -1,0 +1,68 @@
+query GetUserSessionData($username: String = "") {
+  user: user_by_pk(username: $username) {
+    id
+    first_name
+    last_name
+    email
+    theme_name
+    username
+    avatar
+  }
+}
+
+query GetUserSettings($username: String = "") {
+  user: user_by_pk(username: $username) {
+    active
+    avatar
+    email
+    theme_name
+    username
+  }
+}
+
+query GetUserTheme($username: String = "") {
+  user: user_by_pk(username: $username) {
+    theme_name
+  }
+}
+
+fragment PersonnelData on user {
+  cell
+  city
+  country
+  first_name
+  job_title
+  last_name
+}
+
+query GetUserDataAll($username: String = "") {
+  user: user_by_pk(username: $username) {
+    theme_name
+    active
+    username
+    created_at
+    updated_at
+    avatar
+    email
+    ...PersonnelData
+  }
+}
+
+query DoesUserExist($username: String = "", $email: String = "") {
+  user(
+    where: {
+      _or: [{ username: { _ilike: $username } }, { email: { _ilike: $email } }]
+    }
+  ) {
+    username
+    email
+  }
+}
+
+query GetUserPassword($username: String = "") {
+  user: user_by_pk(username: $username) {
+    username
+    email
+    password
+  }
+}

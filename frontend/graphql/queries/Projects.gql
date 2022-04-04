@@ -1,0 +1,28 @@
+query AllProjectsList(
+  $order_by: [project_order_by!] = { name: asc }
+  $limit: Int = 10
+  $offset: Int = 0
+  $name_regex: String = ".*"
+) {
+  project(
+    order_by: $order_by
+    limit: $limit
+    offset: $offset
+    where: { name: { _iregex: $name_regex } }
+  ) {
+    id
+    name
+    description
+    created_at
+    lines_aggregate {
+      aggregate {
+        count
+      }
+    }
+    translations_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}

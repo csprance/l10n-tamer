@@ -1,0 +1,27 @@
+table:
+  name: locale
+  schema: public
+array_relationships:
+- name: project_locales
+  using:
+    foreign_key_constraint_on:
+      column: locale_id
+      table:
+        name: project_locale
+        schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: locale_id
+      table:
+        name: translation
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - name
+    - locale
+    filter: {}
+  role: user

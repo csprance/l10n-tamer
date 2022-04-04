@@ -1,0 +1,46 @@
+version: "3.6"
+
+services:
+  frontend:
+    restart: always
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - l10n-manager:/app
+
+  postgres:
+    image: postgres:14.2-alpine
+    restart: always
+    volumes:
+      - l10n-manager-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  graphql-engine:
+    image: hasura/graphql-engine:v2.5.0-beta.1.cli-migrations-v3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    volumes:
+      - ./hasura/migrations:/hasura-migrations
+      - ./hasura/metadata:/hasura-metadata
+    restart: always
+    environment:
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "false" # set to "false" to disable console
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_ADMIN_SECRET}
+      HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+      HASURA_JWT_EXPIRE_TIME: ${HASURA_JWT_EXPIRE_TIME}
+      TZ: America/New_York
+
+volumes:
+  l10n-manager-db:
+    external: true
+  l10n-manager:
+    external: true

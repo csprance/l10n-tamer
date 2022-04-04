@@ -1,0 +1,43 @@
+table:
+  name: project
+  schema: public
+array_relationships:
+- name: lines
+  using:
+    foreign_key_constraint_on:
+      column: project_id
+      table:
+        name: line
+        schema: public
+- name: project_locales
+  using:
+    foreign_key_constraint_on:
+      column: project_id
+      table:
+        name: project_locale
+        schema: public
+- name: project_users
+  using:
+    foreign_key_constraint_on:
+      column: project_id
+      table:
+        name: project_user
+        schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: project_id
+      table:
+        name: translation
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - description
+    - name
+    filter: {}
+  role: user
