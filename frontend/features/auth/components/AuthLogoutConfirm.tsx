@@ -3,14 +3,16 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import * as React from 'react';
 
 import { LogoIcon } from '@/components/icons/Logo';
+import { logout } from '@/features/auth/lib';
 
 const AuthLogoutConfirm: React.FC = ({}) => {
+  const { data } = useSession();
   const handleLogoutButtonClick = async () => {
-    await signOut();
+    if (data?.user) await logout(data.user.name!);
   };
   return (
     <Card

@@ -10,7 +10,8 @@ import { logEvent } from '@/features/events/lib';
 import {
   DoesTokenExistDocument,
   DoesTokenExistQuery,
-  EventType_Enum, UpdateUserPasswordDocument,
+  EventType_Enum,
+  UpdateUserPasswordDocument,
   UpdateUserPasswordMutation,
 } from '@/graphql/graphql';
 import { initializeApollo } from '@/lib/apollo';

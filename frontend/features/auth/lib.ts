@@ -1,5 +1,18 @@
 import { decode } from 'jsonwebtoken';
-import { GetSessionParams, getSession } from 'next-auth/react';
+import { GetServerSideProps, GetServerSidePropsResult } from 'next';
+import { Session } from 'next-auth';
+import { getSession, signOut } from 'next-auth/react';
+import { GetServerSidePropsContext, PreviewData } from 'next/types';
+import { ParsedUrlQuery } from 'querystring';
+
+import { logEvent } from '@/features/events/lib';
+import {
+  EventType_Enum,
+  UpdateUserActiveDocument,
+  UpdateUserActiveMutation,
+  UpdateUserActiveMutationVariables,
+} from '@/graphql/graphql';
+import { initializeApollo } from '@/lib/apollo';
 
 /**
  * This function generates the headers needed to make admin commands
@@ -27,28 +40,57 @@ export const isJWTExpired = (token: string): boolean => {
     : false;
 };
 
+export type CustomGetServerSideProps<
+  P extends { [key: string]: any } = { [key: string]: any },
+  Q extends ParsedUrlQuery = ParsedUrlQuery,
+  D extends PreviewData = PreviewData,
+> = (
+  context: GetServerSidePropsContext<Q, D>,
+  session: Session,
+) => Promise<GetServerSidePropsResult<P>>;
+export type AuthenticatedGSSPOptions = {
+  destination: string;
+};
 /**
- * This function determines if the user should be redirected to the login page
- * if they are not logged in.
- * @param context Next.js Page Context
- * @param props Next.js Page Props to return if wanted
+ * Return a function that returns a GetServerSideProps function that will check if a user has a valid session
+ * and if not redirect to location of choice if it does it will run the passed in function
+ * @param gssp GetServerSideProps function
+ * @param options
  */
-export async function shouldRedirectToLogin(
-  context: GetSessionParams,
-  props?: any,
-) {
-  const session = await getSession(context);
-  if (!session) {
-    return {
-      should: true,
-      props: {
-        ...props,
+export const authenticatedGetServerSideProps =
+  (
+    gssp: CustomGetServerSideProps,
+    options: AuthenticatedGSSPOptions = {
+      destination: '/auth/login',
+    },
+  ): GetServerSideProps =>
+  async (context): Promise<GetServerSidePropsResult<any>> => {
+    const session = await getSession(context);
+    if (!session) {
+      return {
         redirect: {
-          destination: '/auth/login',
+          destination: options.destination,
           permanent: false,
         },
-      },
-    };
-  }
-  return { should: false, props };
-}
+      };
+    }
+    return gssp(context, session);
+  };
+
+/**
+ * Log out a user and log the event then use next-auth to sign out.
+ * This should be run instead of signOut sinceit runs signOut and other functions
+ * @param username
+ */
+export const logout = async (username: string) => {
+  const client = initializeApollo();
+  await client.mutate<
+    UpdateUserActiveMutation,
+    UpdateUserActiveMutationVariables
+  >({
+    mutation: UpdateUserActiveDocument,
+    variables: { username, active: false },
+  });
+  await client.resetStore();
+  await signOut();
+};

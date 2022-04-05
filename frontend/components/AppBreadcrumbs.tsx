@@ -15,12 +15,13 @@ const AppBreadcrumbs: React.FC<Props> = ({}) => {
       localeCode: locale as string,
     },
   });
+  console.log(data);
   return (
     <Breadcrumbs aria-label="breadcrumb" sx={{ marginLeft: 2 }}>
       <Link underline="hover" color="inherit" href="/">
         {router.query['project-name']}
       </Link>
-      <Typography color="text.primary">{data?.locale}</Typography>
+      {/*<Typography color="text.primary">{data?.locale[0].name}</Typography>*/}
     </Breadcrumbs>
   );
 };

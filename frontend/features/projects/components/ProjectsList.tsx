@@ -5,7 +5,7 @@ import { useThrottle } from 'react-use';
 
 import useNotifications from '@/features/notifications/useNotifications';
 import ProjectListItem from '@/features/projects/components/ProjectListItem';
-import {useAllProjectsListQuery} from "@/graphql/graphql";
+import { useAllProjectsListQuery } from '@/graphql/graphql';
 
 const Wrapper = styled.div`
   display: flex;
@@ -50,10 +50,13 @@ const ProjectsList: React.FC<Props> = ({}) => {
         {data &&
           data.project.map((project) => (
             <ProjectListItem
+              slug={project.slug}
               key={project.id}
               id={project.id}
               total_lines={project.lines_aggregate.aggregate?.count!}
-              total_translation={project.translations_aggregate.aggregate?.count!}
+              total_translation={
+                project.translations_aggregate.aggregate?.count!
+              }
               name={project.name}
               description={project.description}
             />

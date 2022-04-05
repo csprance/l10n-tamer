@@ -6,7 +6,8 @@ import { Session } from 'next-auth';
 
 import {
   DoesUserExistDocument,
-  DoesUserExistQuery, RegisterUserDocument,
+  DoesUserExistQuery,
+  RegisterUserDocument,
   RegisterUserMutation,
   RegisterUserMutationVariables,
 } from '@/graphql/graphql';

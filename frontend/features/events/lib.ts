@@ -1,5 +1,6 @@
 import {
-  EventType_Enum, InsertEventDocument,
+  EventType_Enum,
+  InsertEventDocument,
   InsertEventMutation,
   InsertEventMutationVariables,
 } from '@/graphql/graphql';

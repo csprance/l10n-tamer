@@ -1,16 +1,9 @@
 import { GetServerSideProps, NextPage } from 'next';
-import { getSession, signOut } from 'next-auth/react';
 
 import AuthLayout from '@/features/auth/components/AuthLayout';
 import AuthLogoutConfirm from '@/features/auth/components/AuthLogoutConfirm';
-import { logEvent } from '@/features/events/lib';
-import {
-  EventType_Enum, UpdateUserActiveDocument,
-  UpdateUserActiveMutation,
-  UpdateUserActiveMutationVariables,
-} from '@/graphql/graphql';
+import { authenticatedGetServerSideProps, logout } from '@/features/auth/lib';
 import { strings } from '@/l10n';
-import { initializeApollo } from '@/lib/apollo';
 
 /**
  * This page does do things.
@@ -35,54 +28,24 @@ const LogoutPage: NextPage = ({}) => {
  * Wants to log out unless we put /auth/logout?force
  * To force a logout with no confirmation
  */
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getSession(context);
-  // if we have no user then just go back to login because we shouldn't be here
-  if (!session) {
+export const getServerSideProps: GetServerSideProps =
+  authenticatedGetServerSideProps(async (context, session) => {
+    // Force not in query param. Show confirm logout page
+    if (!context.query.hasOwnProperty('force')) {
+      // Go to the confirm login page
+      return {
+        props: { session },
+      };
+    }
+    // If we have a user and we have force in query params then we want to
+    // log them out and then redirect to login
+    if (session.user) await logout(session.user.name!);
     return {
       redirect: {
         destination: '/auth/login',
         permanent: false,
       },
     };
-  }
-
-  // Force not in query param. Show confirm logout page
-  if (!context.query.hasOwnProperty('force')) {
-    // Go to the confirm login page
-    return {
-      props: {},
-    };
-  }
-
-  // If we have a user and we have force in query params then we want to
-  // log them out and then redirect to login (where jwt will be destroyed also)
-  const { user } = session;
-  if (user) {
-    logEvent({
-      summary: `${user.name} Logged out`,
-      event_type: EventType_Enum.UserLogout,
-      user_username: user.name!,
-    });
-    // Set user inactive
-    const client = initializeApollo();
-    client.mutate<UpdateUserActiveMutation, UpdateUserActiveMutationVariables>({
-      mutation: UpdateUserActiveDocument,
-      variables: { username: user.name, active: false },
-    });
-    await signOut();
-    return {
-      redirect: {
-        destination: '/auth/login',
-        permanent: false,
-      },
-    };
-  }
-
-  // Should never get here
-  return {
-    props: {},
-  };
-};
+  });
 
 export default LogoutPage;

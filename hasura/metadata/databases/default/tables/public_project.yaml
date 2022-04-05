@@ -37,7 +37,8 @@ select_permissions:
     - id
     - created_at
     - updated_at
-    - description
     - name
+    - description
+    - slug
     filter: {}
   role: user

@@ -14,6 +14,7 @@ query AllProjectsList(
     name
     description
     created_at
+    slug
     lines_aggregate {
       aggregate {
         count
@@ -24,5 +25,14 @@ query AllProjectsList(
         count
       }
     }
+  }
+}
+
+query ProjectBySlug($slug: String = "") {
+  project(where: { slug: { _eq: $slug } }) {
+    created_at
+    description
+    id
+    name
   }
 }

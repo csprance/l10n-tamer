@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import NextAuth, { Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
+
 import { ThemeNames } from '@/constants';
 import { logEvent } from '@/features/events/lib';
 import {
@@ -12,7 +13,6 @@ import {
   GetUserSessionDataDocument,
   GetUserSessionDataQuery,
 } from '@/graphql/graphql';
-
 import { initializeApollo } from '@/lib/apollo';
 
 // import Auth0Provider from "next-auth/providers/auth0"
@@ -80,12 +80,11 @@ export default NextAuth({
           return null;
         }
         // Success! We are a valid user. Lets grab that data and set it to the session
-        const { data: userSessionData } = await client.query<
-          GetUserSessionDataQuery
-        >({
-          query: GetUserSessionDataDocument,
-          variables: { username },
-        });
+        const { data: userSessionData } =
+          await client.query<GetUserSessionDataQuery>({
+            query: GetUserSessionDataDocument,
+            variables: { username },
+          });
         if (!userSessionData.user) {
           return null;
         }
@@ -263,9 +262,9 @@ export default NextAuth({
     },
     async signOut(message) {
       logEvent({
-        summary: `${message.session.user?.name} Logged out`,
+        summary: `${message.token.name} Logged out`,
         event_type: EventType_Enum.UserLogout,
-        user_username: message.session.user?.name!,
+        user_username: message.token.name!,
         meta: message,
       });
     },

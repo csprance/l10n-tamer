@@ -1,5 +1,6 @@
-import * as React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import * as React from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ interface Props {
   description: string;
   total_lines: number;
   total_translation: number;
+  slug: string;
 }
 const ProjectListItem: React.FC<Props> = ({
   id,
@@ -21,13 +23,18 @@ const ProjectListItem: React.FC<Props> = ({
   description,
   total_lines,
   total_translation,
+  slug,
 }) => {
   return (
     <Wrapper key={id}>
-      <h2>{name}</h2> <p>{description}</p>{' '}
-      <p>
-         {total_translation} / {total_lines}
-      </p>
+      <Link passHref href={`/project/${slug}`}>
+        <a>
+          <h2>{name}</h2> <p>{description}</p>{' '}
+          <p>
+            {total_translation} / {total_lines}
+          </p>
+        </a>
+      </Link>
     </Wrapper>
   );
 };

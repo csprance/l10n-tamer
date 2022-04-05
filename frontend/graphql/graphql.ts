@@ -1,10 +1,17 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -52,7 +59,6 @@ export type EventType_Aggregate_Fields = {
   min?: Maybe<EventType_Min_Fields>;
 };
 
-
 /** aggregate fields of "EventType" */
 export type EventType_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<EventType_Select_Column>>;
@@ -70,7 +76,7 @@ export type EventType_Bool_Exp = {
 /** unique or primary key constraints on table "EventType" */
 export enum EventType_Constraint {
   /** unique or primary key constraint */
-  EventTypePkey = 'EventType_pkey'
+  EventTypePkey = 'EventType_pkey',
 }
 
 export enum EventType_Enum {
@@ -112,7 +118,7 @@ export enum EventType_Enum {
   UserRegister = 'USER_REGISTER',
   UserRegisterFailed = 'USER_REGISTER_FAILED',
   UserUpdate = 'USER_UPDATE',
-  UserUpdateFailed = 'USER_UPDATE_FAILED'
+  UserUpdateFailed = 'USER_UPDATE_FAILED',
 }
 
 /** Boolean expression to compare columns of type "EventType_enum". All fields are combined with logical 'AND'. */
@@ -177,7 +183,7 @@ export type EventType_Pk_Columns_Input = {
 /** select columns of table "EventType" */
 export enum EventType_Select_Column {
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** input type for updating data in table "EventType" */
@@ -188,7 +194,7 @@ export type EventType_Set_Input = {
 /** update columns of table "EventType" */
 export enum EventType_Update_Column {
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -275,12 +281,10 @@ export type Event = {
   user_username: Scalars['String'];
 };
 
-
 /** The event log of all events that happen in the entire application and meta data */
 export type EventMetaArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
-
 
 /** The event log of all events that happen in the entire application and meta data */
 export type EventNotificationsArgs = {
@@ -290,7 +294,6 @@ export type EventNotificationsArgs = {
   order_by?: InputMaybe<Array<Notification_Order_By>>;
   where?: InputMaybe<Notification_Bool_Exp>;
 };
-
 
 /** The event log of all events that happen in the entire application and meta data */
 export type EventNotifications_AggregateArgs = {
@@ -323,7 +326,6 @@ export type Event_Aggregate_Fields = {
   var_samp?: Maybe<Event_Var_Samp_Fields>;
   variance?: Maybe<Event_Variance_Fields>;
 };
-
 
 /** aggregate fields of "event" */
 export type Event_Aggregate_FieldsCountArgs = {
@@ -394,7 +396,7 @@ export type Event_Bool_Exp = {
 /** unique or primary key constraints on table "event" */
 export enum Event_Constraint {
   /** unique or primary key constraint */
-  EventPkey = 'event_pkey'
+  EventPkey = 'event_pkey',
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
@@ -554,7 +556,7 @@ export enum Event_Select_Column {
   /** column name */
   Summary = 'summary',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** input type for updating data in table "event" */
@@ -648,7 +650,7 @@ export enum Event_Update_Column {
   /** column name */
   Summary = 'summary',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** aggregate var_pop on columns */
@@ -743,7 +745,6 @@ export type Line = {
   updated_at: Scalars['timestamptz'];
 };
 
-
 /** A line represents a specific word, phrase or any other language construct that needs to be translated. */
 export type LineTranslationsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -752,7 +753,6 @@ export type LineTranslationsArgs = {
   order_by?: InputMaybe<Array<Translation_Order_By>>;
   where?: InputMaybe<Translation_Bool_Exp>;
 };
-
 
 /** A line represents a specific word, phrase or any other language construct that needs to be translated. */
 export type LineTranslations_AggregateArgs = {
@@ -785,7 +785,6 @@ export type Line_Aggregate_Fields = {
   var_samp?: Maybe<Line_Var_Samp_Fields>;
   variance?: Maybe<Line_Variance_Fields>;
 };
-
 
 /** aggregate fields of "line" */
 export type Line_Aggregate_FieldsCountArgs = {
@@ -846,7 +845,7 @@ export type Line_Bool_Exp = {
 /** unique or primary key constraints on table "line" */
 export enum Line_Constraint {
   /** unique or primary key constraint */
-  LinePkey = 'line_pkey'
+  LinePkey = 'line_pkey',
 }
 
 /** input type for incrementing numeric columns in table "line" */
@@ -972,7 +971,7 @@ export enum Line_Select_Column {
   /** column name */
   ProjectId = 'project_id',
   /** column name */
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 /** input type for updating data in table "line" */
@@ -1052,7 +1051,7 @@ export enum Line_Update_Column {
   /** column name */
   ProjectId = 'project_id',
   /** column name */
-  UpdatedAt = 'updated_at'
+  UpdatedAt = 'updated_at',
 }
 
 /** aggregate var_pop on columns */
@@ -1112,7 +1111,6 @@ export type Locale = {
   translations_aggregate: Translation_Aggregate;
 };
 
-
 /** All of the available locales for all projects */
 export type LocaleProject_LocalesArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
@@ -1121,7 +1119,6 @@ export type LocaleProject_LocalesArgs = {
   order_by?: InputMaybe<Array<Project_Locale_Order_By>>;
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
-
 
 /** All of the available locales for all projects */
 export type LocaleProject_Locales_AggregateArgs = {
@@ -1132,7 +1129,6 @@ export type LocaleProject_Locales_AggregateArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 /** All of the available locales for all projects */
 export type LocaleTranslationsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -1141,7 +1137,6 @@ export type LocaleTranslationsArgs = {
   order_by?: InputMaybe<Array<Translation_Order_By>>;
   where?: InputMaybe<Translation_Bool_Exp>;
 };
-
 
 /** All of the available locales for all projects */
 export type LocaleTranslations_AggregateArgs = {
@@ -1175,7 +1170,6 @@ export type Locale_Aggregate_Fields = {
   variance?: Maybe<Locale_Variance_Fields>;
 };
 
-
 /** aggregate fields of "locale" */
 export type Locale_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Locale_Select_Column>>;
@@ -1205,7 +1199,7 @@ export enum Locale_Constraint {
   /** unique or primary key constraint */
   LocaleLocaleKey = 'locale_locale_key',
   /** unique or primary key constraint */
-  LocalePkey = 'locale_pkey'
+  LocalePkey = 'locale_pkey',
 }
 
 /** input type for incrementing numeric columns in table "locale" */
@@ -1288,7 +1282,7 @@ export enum Locale_Select_Column {
   /** column name */
   Locale = 'locale',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** input type for updating data in table "locale" */
@@ -1331,7 +1325,7 @@ export enum Locale_Update_Column {
   /** column name */
   Locale = 'locale',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate var_pop on columns */
@@ -1509,156 +1503,130 @@ export type Mutation_Root = {
   update_user_private?: Maybe<User_Private_Mutation_Response>;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_EventTypeArgs = {
   where: EventType_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_EventType_By_PkArgs = {
   value: Scalars['String'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_EventArgs = {
   where: Event_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Event_By_PkArgs = {
   id: Scalars['bigint'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_LineArgs = {
   where: Line_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Line_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_LocaleArgs = {
   where: Locale_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Locale_By_PkArgs = {
   id: Scalars['bigint'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_NotificationArgs = {
   where: Notification_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Notification_By_PkArgs = {
   id: Scalars['bigint'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Password_ResetArgs = {
   where: Password_Reset_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Password_Reset_By_PkArgs = {
   id: Scalars['bigint'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_ProjectArgs = {
   where: Project_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Project_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Project_LocaleArgs = {
   where: Project_Locale_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Project_Locale_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Project_UserArgs = {
   where: Project_User_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Project_User_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_TranslationArgs = {
   where: Translation_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Translation_By_PkArgs = {
   id: Scalars['bigint'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Translation_CommentArgs = {
   where: Translation_Comment_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Translation_Comment_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_UserArgs = {
   where: User_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_User_By_PkArgs = {
   username: Scalars['String'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_User_PrivateArgs = {
   where: User_Private_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_EventTypeArgs = {
@@ -1666,13 +1634,11 @@ export type Mutation_RootInsert_EventTypeArgs = {
   on_conflict?: InputMaybe<EventType_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_EventType_OneArgs = {
   object: EventType_Insert_Input;
   on_conflict?: InputMaybe<EventType_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_EventArgs = {
@@ -1680,13 +1646,11 @@ export type Mutation_RootInsert_EventArgs = {
   on_conflict?: InputMaybe<Event_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Event_OneArgs = {
   object: Event_Insert_Input;
   on_conflict?: InputMaybe<Event_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_LineArgs = {
@@ -1694,13 +1658,11 @@ export type Mutation_RootInsert_LineArgs = {
   on_conflict?: InputMaybe<Line_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Line_OneArgs = {
   object: Line_Insert_Input;
   on_conflict?: InputMaybe<Line_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_LocaleArgs = {
@@ -1708,13 +1670,11 @@ export type Mutation_RootInsert_LocaleArgs = {
   on_conflict?: InputMaybe<Locale_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Locale_OneArgs = {
   object: Locale_Insert_Input;
   on_conflict?: InputMaybe<Locale_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_NotificationArgs = {
@@ -1722,13 +1682,11 @@ export type Mutation_RootInsert_NotificationArgs = {
   on_conflict?: InputMaybe<Notification_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Notification_OneArgs = {
   object: Notification_Insert_Input;
   on_conflict?: InputMaybe<Notification_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_Password_ResetArgs = {
@@ -1736,13 +1694,11 @@ export type Mutation_RootInsert_Password_ResetArgs = {
   on_conflict?: InputMaybe<Password_Reset_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Password_Reset_OneArgs = {
   object: Password_Reset_Insert_Input;
   on_conflict?: InputMaybe<Password_Reset_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_ProjectArgs = {
@@ -1750,13 +1706,11 @@ export type Mutation_RootInsert_ProjectArgs = {
   on_conflict?: InputMaybe<Project_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Project_LocaleArgs = {
   objects: Array<Project_Locale_Insert_Input>;
   on_conflict?: InputMaybe<Project_Locale_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_Project_Locale_OneArgs = {
@@ -1764,13 +1718,11 @@ export type Mutation_RootInsert_Project_Locale_OneArgs = {
   on_conflict?: InputMaybe<Project_Locale_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Project_OneArgs = {
   object: Project_Insert_Input;
   on_conflict?: InputMaybe<Project_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_Project_UserArgs = {
@@ -1778,13 +1730,11 @@ export type Mutation_RootInsert_Project_UserArgs = {
   on_conflict?: InputMaybe<Project_User_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Project_User_OneArgs = {
   object: Project_User_Insert_Input;
   on_conflict?: InputMaybe<Project_User_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_TranslationArgs = {
@@ -1792,13 +1742,11 @@ export type Mutation_RootInsert_TranslationArgs = {
   on_conflict?: InputMaybe<Translation_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Translation_CommentArgs = {
   objects: Array<Translation_Comment_Insert_Input>;
   on_conflict?: InputMaybe<Translation_Comment_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_Translation_Comment_OneArgs = {
@@ -1806,13 +1754,11 @@ export type Mutation_RootInsert_Translation_Comment_OneArgs = {
   on_conflict?: InputMaybe<Translation_Comment_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Translation_OneArgs = {
   object: Translation_Insert_Input;
   on_conflict?: InputMaybe<Translation_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_UserArgs = {
@@ -1820,25 +1766,21 @@ export type Mutation_RootInsert_UserArgs = {
   on_conflict?: InputMaybe<User_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_User_OneArgs = {
   object: User_Insert_Input;
   on_conflict?: InputMaybe<User_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_User_PrivateArgs = {
   objects: Array<User_Private_Insert_Input>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_User_Private_OneArgs = {
   object: User_Private_Insert_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_EventTypeArgs = {
@@ -1846,13 +1788,11 @@ export type Mutation_RootUpdate_EventTypeArgs = {
   where: EventType_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_EventType_By_PkArgs = {
   _set?: InputMaybe<EventType_Set_Input>;
   pk_columns: EventType_Pk_Columns_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_EventArgs = {
@@ -1866,7 +1806,6 @@ export type Mutation_RootUpdate_EventArgs = {
   where: Event_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Event_By_PkArgs = {
   _append?: InputMaybe<Event_Append_Input>;
@@ -1879,14 +1818,12 @@ export type Mutation_RootUpdate_Event_By_PkArgs = {
   pk_columns: Event_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_LineArgs = {
   _inc?: InputMaybe<Line_Inc_Input>;
   _set?: InputMaybe<Line_Set_Input>;
   where: Line_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Line_By_PkArgs = {
@@ -1895,14 +1832,12 @@ export type Mutation_RootUpdate_Line_By_PkArgs = {
   pk_columns: Line_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_LocaleArgs = {
   _inc?: InputMaybe<Locale_Inc_Input>;
   _set?: InputMaybe<Locale_Set_Input>;
   where: Locale_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Locale_By_PkArgs = {
@@ -1911,14 +1846,12 @@ export type Mutation_RootUpdate_Locale_By_PkArgs = {
   pk_columns: Locale_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_NotificationArgs = {
   _inc?: InputMaybe<Notification_Inc_Input>;
   _set?: InputMaybe<Notification_Set_Input>;
   where: Notification_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Notification_By_PkArgs = {
@@ -1927,14 +1860,12 @@ export type Mutation_RootUpdate_Notification_By_PkArgs = {
   pk_columns: Notification_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Password_ResetArgs = {
   _inc?: InputMaybe<Password_Reset_Inc_Input>;
   _set?: InputMaybe<Password_Reset_Set_Input>;
   where: Password_Reset_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Password_Reset_By_PkArgs = {
@@ -1943,14 +1874,12 @@ export type Mutation_RootUpdate_Password_Reset_By_PkArgs = {
   pk_columns: Password_Reset_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_ProjectArgs = {
   _inc?: InputMaybe<Project_Inc_Input>;
   _set?: InputMaybe<Project_Set_Input>;
   where: Project_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Project_By_PkArgs = {
@@ -1959,14 +1888,12 @@ export type Mutation_RootUpdate_Project_By_PkArgs = {
   pk_columns: Project_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Project_LocaleArgs = {
   _inc?: InputMaybe<Project_Locale_Inc_Input>;
   _set?: InputMaybe<Project_Locale_Set_Input>;
   where: Project_Locale_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Project_Locale_By_PkArgs = {
@@ -1975,14 +1902,12 @@ export type Mutation_RootUpdate_Project_Locale_By_PkArgs = {
   pk_columns: Project_Locale_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Project_UserArgs = {
   _inc?: InputMaybe<Project_User_Inc_Input>;
   _set?: InputMaybe<Project_User_Set_Input>;
   where: Project_User_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Project_User_By_PkArgs = {
@@ -1991,14 +1916,12 @@ export type Mutation_RootUpdate_Project_User_By_PkArgs = {
   pk_columns: Project_User_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_TranslationArgs = {
   _inc?: InputMaybe<Translation_Inc_Input>;
   _set?: InputMaybe<Translation_Set_Input>;
   where: Translation_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Translation_By_PkArgs = {
@@ -2007,14 +1930,12 @@ export type Mutation_RootUpdate_Translation_By_PkArgs = {
   pk_columns: Translation_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Translation_CommentArgs = {
   _inc?: InputMaybe<Translation_Comment_Inc_Input>;
   _set?: InputMaybe<Translation_Comment_Set_Input>;
   where: Translation_Comment_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Translation_Comment_By_PkArgs = {
@@ -2023,7 +1944,6 @@ export type Mutation_RootUpdate_Translation_Comment_By_PkArgs = {
   pk_columns: Translation_Comment_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_UserArgs = {
   _inc?: InputMaybe<User_Inc_Input>;
@@ -2031,14 +1951,12 @@ export type Mutation_RootUpdate_UserArgs = {
   where: User_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_User_By_PkArgs = {
   _inc?: InputMaybe<User_Inc_Input>;
   _set?: InputMaybe<User_Set_Input>;
   pk_columns: User_Pk_Columns_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_User_PrivateArgs = {
@@ -2083,7 +2001,6 @@ export type Notification_Aggregate_Fields = {
   var_samp?: Maybe<Notification_Var_Samp_Fields>;
   variance?: Maybe<Notification_Variance_Fields>;
 };
-
 
 /** aggregate fields of "notification" */
 export type Notification_Aggregate_FieldsCountArgs = {
@@ -2144,7 +2061,7 @@ export type Notification_Bool_Exp = {
 /** unique or primary key constraints on table "notification" */
 export enum Notification_Constraint {
   /** unique or primary key constraint */
-  NotificationPkey = 'notification_pkey'
+  NotificationPkey = 'notification_pkey',
 }
 
 /** input type for incrementing numeric columns in table "notification" */
@@ -2248,7 +2165,7 @@ export enum Notification_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** input type for updating data in table "notification" */
@@ -2330,7 +2247,7 @@ export enum Notification_Update_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** aggregate var_pop on columns */
@@ -2391,7 +2308,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = 'desc_nulls_last',
 }
 
 /** This table contains data to help us manage the password reset process. */
@@ -2430,7 +2347,6 @@ export type Password_Reset_Aggregate_Fields = {
   var_samp?: Maybe<Password_Reset_Var_Samp_Fields>;
   variance?: Maybe<Password_Reset_Variance_Fields>;
 };
-
 
 /** aggregate fields of "password_reset" */
 export type Password_Reset_Aggregate_FieldsCountArgs = {
@@ -2489,7 +2405,7 @@ export enum Password_Reset_Constraint {
   /** unique or primary key constraint */
   PasswordResetPkey = 'password_reset_pkey',
   /** unique or primary key constraint */
-  PasswordResetTokenKey = 'password_reset_token_key'
+  PasswordResetTokenKey = 'password_reset_token_key',
 }
 
 /** input type for incrementing numeric columns in table "password_reset" */
@@ -2597,7 +2513,7 @@ export enum Password_Reset_Select_Column {
   /** column name */
   UserUsername = 'user_username',
   /** column name */
-  ValidTill = 'valid_till'
+  ValidTill = 'valid_till',
 }
 
 /** input type for updating data in table "password_reset" */
@@ -2666,7 +2582,7 @@ export enum Password_Reset_Update_Column {
   /** column name */
   UserUsername = 'user_username',
   /** column name */
-  ValidTill = 'valid_till'
+  ValidTill = 'valid_till',
 }
 
 /** aggregate var_pop on columns */
@@ -2723,13 +2639,14 @@ export type Project = {
   project_users: Array<Project_User>;
   /** An aggregate relationship */
   project_users_aggregate: Project_User_Aggregate;
+  /** The generated slug for the project name it is used in the url. */
+  slug: Scalars['String'];
   /** An array relationship */
   translations: Array<Translation>;
   /** An aggregate relationship */
   translations_aggregate: Translation_Aggregate;
   updated_at: Scalars['timestamptz'];
 };
-
 
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectLinesArgs = {
@@ -2740,7 +2657,6 @@ export type ProjectLinesArgs = {
   where?: InputMaybe<Line_Bool_Exp>;
 };
 
-
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectLines_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Line_Select_Column>>;
@@ -2749,7 +2665,6 @@ export type ProjectLines_AggregateArgs = {
   order_by?: InputMaybe<Array<Line_Order_By>>;
   where?: InputMaybe<Line_Bool_Exp>;
 };
-
 
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectProject_LocalesArgs = {
@@ -2760,7 +2675,6 @@ export type ProjectProject_LocalesArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectProject_Locales_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
@@ -2769,7 +2683,6 @@ export type ProjectProject_Locales_AggregateArgs = {
   order_by?: InputMaybe<Array<Project_Locale_Order_By>>;
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
-
 
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectProject_UsersArgs = {
@@ -2780,7 +2693,6 @@ export type ProjectProject_UsersArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectProject_Users_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
@@ -2790,7 +2702,6 @@ export type ProjectProject_Users_AggregateArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectTranslationsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -2799,7 +2710,6 @@ export type ProjectTranslationsArgs = {
   order_by?: InputMaybe<Array<Translation_Order_By>>;
   where?: InputMaybe<Translation_Bool_Exp>;
 };
-
 
 /** A project represents a collection of lines to translate to any number of locales */
 export type ProjectTranslations_AggregateArgs = {
@@ -2833,7 +2743,6 @@ export type Project_Aggregate_Fields = {
   variance?: Maybe<Project_Variance_Fields>;
 };
 
-
 /** aggregate fields of "project" */
 export type Project_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Project_Select_Column>>;
@@ -2858,6 +2767,7 @@ export type Project_Bool_Exp = {
   name?: InputMaybe<String_Comparison_Exp>;
   project_locales?: InputMaybe<Project_Locale_Bool_Exp>;
   project_users?: InputMaybe<Project_User_Bool_Exp>;
+  slug?: InputMaybe<String_Comparison_Exp>;
   translations?: InputMaybe<Translation_Bool_Exp>;
   updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
@@ -2865,7 +2775,7 @@ export type Project_Bool_Exp = {
 /** unique or primary key constraints on table "project" */
 export enum Project_Constraint {
   /** unique or primary key constraint */
-  ProjectPkey = 'project_pkey'
+  ProjectPkey = 'project_pkey',
 }
 
 /** input type for incrementing numeric columns in table "project" */
@@ -2884,6 +2794,8 @@ export type Project_Insert_Input = {
   name?: InputMaybe<Scalars['String']>;
   project_locales?: InputMaybe<Project_Locale_Arr_Rel_Insert_Input>;
   project_users?: InputMaybe<Project_User_Arr_Rel_Insert_Input>;
+  /** The generated slug for the project name it is used in the url. */
+  slug?: InputMaybe<Scalars['String']>;
   translations?: InputMaybe<Translation_Arr_Rel_Insert_Input>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
 };
@@ -2924,7 +2836,6 @@ export type Project_Locale_Aggregate_Fields = {
   var_samp?: Maybe<Project_Locale_Var_Samp_Fields>;
   variance?: Maybe<Project_Locale_Variance_Fields>;
 };
-
 
 /** aggregate fields of "project_locale" */
 export type Project_Locale_Aggregate_FieldsCountArgs = {
@@ -2986,7 +2897,7 @@ export type Project_Locale_Bool_Exp = {
 /** unique or primary key constraints on table "project_locale" */
 export enum Project_Locale_Constraint {
   /** unique or primary key constraint */
-  ProjectLocalePkey = 'project_locale_pkey'
+  ProjectLocalePkey = 'project_locale_pkey',
 }
 
 /** input type for incrementing numeric columns in table "project_locale" */
@@ -3084,7 +2995,7 @@ export enum Project_Locale_Select_Column {
   /** column name */
   LocaleId = 'locale_id',
   /** column name */
-  ProjectId = 'project_id'
+  ProjectId = 'project_id',
 }
 
 /** input type for updating data in table "project_locale" */
@@ -3167,7 +3078,7 @@ export enum Project_Locale_Update_Column {
   /** column name */
   LocaleId = 'locale_id',
   /** column name */
-  ProjectId = 'project_id'
+  ProjectId = 'project_id',
 }
 
 /** aggregate var_pop on columns */
@@ -3224,6 +3135,8 @@ export type Project_Max_Fields = {
   id?: Maybe<Scalars['Int']>;
   /** What is the name of the project. This is shown in the UI */
   name?: Maybe<Scalars['String']>;
+  /** The generated slug for the project name it is used in the url. */
+  slug?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
@@ -3236,6 +3149,8 @@ export type Project_Min_Fields = {
   id?: Maybe<Scalars['Int']>;
   /** What is the name of the project. This is shown in the UI */
   name?: Maybe<Scalars['String']>;
+  /** The generated slug for the project name it is used in the url. */
+  slug?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
@@ -3271,6 +3186,7 @@ export type Project_Order_By = {
   name?: InputMaybe<Order_By>;
   project_locales_aggregate?: InputMaybe<Project_Locale_Aggregate_Order_By>;
   project_users_aggregate?: InputMaybe<Project_User_Aggregate_Order_By>;
+  slug?: InputMaybe<Order_By>;
   translations_aggregate?: InputMaybe<Translation_Aggregate_Order_By>;
   updated_at?: InputMaybe<Order_By>;
 };
@@ -3291,7 +3207,9 @@ export enum Project_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  UpdatedAt = 'updated_at'
+  Slug = 'slug',
+  /** column name */
+  UpdatedAt = 'updated_at',
 }
 
 /** input type for updating data in table "project" */
@@ -3302,6 +3220,8 @@ export type Project_Set_Input = {
   id?: InputMaybe<Scalars['Int']>;
   /** What is the name of the project. This is shown in the UI */
   name?: InputMaybe<Scalars['String']>;
+  /** The generated slug for the project name it is used in the url. */
+  slug?: InputMaybe<Scalars['String']>;
   updated_at?: InputMaybe<Scalars['timestamptz']>;
 };
 
@@ -3340,7 +3260,9 @@ export enum Project_Update_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  UpdatedAt = 'updated_at'
+  Slug = 'slug',
+  /** column name */
+  UpdatedAt = 'updated_at',
 }
 
 /** A relational table to indicate which users belong to which projects */
@@ -3380,7 +3302,6 @@ export type Project_User_Aggregate_Fields = {
   var_samp?: Maybe<Project_User_Var_Samp_Fields>;
   variance?: Maybe<Project_User_Variance_Fields>;
 };
-
 
 /** aggregate fields of "project_user" */
 export type Project_User_Aggregate_FieldsCountArgs = {
@@ -3440,7 +3361,7 @@ export type Project_User_Bool_Exp = {
 /** unique or primary key constraints on table "project_user" */
 export enum Project_User_Constraint {
   /** unique or primary key constraint */
-  ProjectUserPkey = 'project_user_pkey'
+  ProjectUserPkey = 'project_user_pkey',
 }
 
 /** input type for incrementing numeric columns in table "project_user" */
@@ -3538,7 +3459,7 @@ export enum Project_User_Select_Column {
   /** column name */
   ProjectId = 'project_id',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** input type for updating data in table "project_user" */
@@ -3614,7 +3535,7 @@ export enum Project_User_Update_Column {
   /** column name */
   ProjectId = 'project_id',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** aggregate var_pop on columns */
@@ -3754,7 +3675,6 @@ export type Query_Root = {
   user_private_aggregate: User_Private_Aggregate;
 };
 
-
 export type Query_RootEventTypeArgs = {
   distinct_on?: InputMaybe<Array<EventType_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3762,7 +3682,6 @@ export type Query_RootEventTypeArgs = {
   order_by?: InputMaybe<Array<EventType_Order_By>>;
   where?: InputMaybe<EventType_Bool_Exp>;
 };
-
 
 export type Query_RootEventType_AggregateArgs = {
   distinct_on?: InputMaybe<Array<EventType_Select_Column>>;
@@ -3772,11 +3691,9 @@ export type Query_RootEventType_AggregateArgs = {
   where?: InputMaybe<EventType_Bool_Exp>;
 };
 
-
 export type Query_RootEventType_By_PkArgs = {
   value: Scalars['String'];
 };
-
 
 export type Query_RootEventArgs = {
   distinct_on?: InputMaybe<Array<Event_Select_Column>>;
@@ -3786,7 +3703,6 @@ export type Query_RootEventArgs = {
   where?: InputMaybe<Event_Bool_Exp>;
 };
 
-
 export type Query_RootEvent_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Event_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3795,11 +3711,9 @@ export type Query_RootEvent_AggregateArgs = {
   where?: InputMaybe<Event_Bool_Exp>;
 };
 
-
 export type Query_RootEvent_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Query_RootLineArgs = {
   distinct_on?: InputMaybe<Array<Line_Select_Column>>;
@@ -3809,7 +3723,6 @@ export type Query_RootLineArgs = {
   where?: InputMaybe<Line_Bool_Exp>;
 };
 
-
 export type Query_RootLine_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Line_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3818,11 +3731,9 @@ export type Query_RootLine_AggregateArgs = {
   where?: InputMaybe<Line_Bool_Exp>;
 };
 
-
 export type Query_RootLine_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootLocaleArgs = {
   distinct_on?: InputMaybe<Array<Locale_Select_Column>>;
@@ -3832,7 +3743,6 @@ export type Query_RootLocaleArgs = {
   where?: InputMaybe<Locale_Bool_Exp>;
 };
 
-
 export type Query_RootLocale_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Locale_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3841,11 +3751,9 @@ export type Query_RootLocale_AggregateArgs = {
   where?: InputMaybe<Locale_Bool_Exp>;
 };
 
-
 export type Query_RootLocale_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Query_RootNotificationArgs = {
   distinct_on?: InputMaybe<Array<Notification_Select_Column>>;
@@ -3855,7 +3763,6 @@ export type Query_RootNotificationArgs = {
   where?: InputMaybe<Notification_Bool_Exp>;
 };
 
-
 export type Query_RootNotification_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Notification_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3864,11 +3771,9 @@ export type Query_RootNotification_AggregateArgs = {
   where?: InputMaybe<Notification_Bool_Exp>;
 };
 
-
 export type Query_RootNotification_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Query_RootPassword_ResetArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Select_Column>>;
@@ -3878,7 +3783,6 @@ export type Query_RootPassword_ResetArgs = {
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
 
-
 export type Query_RootPassword_Reset_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3887,11 +3791,9 @@ export type Query_RootPassword_Reset_AggregateArgs = {
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
 
-
 export type Query_RootPassword_Reset_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Query_RootProjectArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
@@ -3901,7 +3803,6 @@ export type Query_RootProjectArgs = {
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Query_RootProject_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3910,11 +3811,9 @@ export type Query_RootProject_AggregateArgs = {
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Query_RootProject_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootProject_LocaleArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
@@ -3924,7 +3823,6 @@ export type Query_RootProject_LocaleArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 export type Query_RootProject_Locale_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3933,11 +3831,9 @@ export type Query_RootProject_Locale_AggregateArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 export type Query_RootProject_Locale_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootProject_UserArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
@@ -3947,7 +3843,6 @@ export type Query_RootProject_UserArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 export type Query_RootProject_User_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3956,11 +3851,9 @@ export type Query_RootProject_User_AggregateArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 export type Query_RootProject_User_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootTranslationArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -3970,7 +3863,6 @@ export type Query_RootTranslationArgs = {
   where?: InputMaybe<Translation_Bool_Exp>;
 };
 
-
 export type Query_RootTranslation_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3979,11 +3871,9 @@ export type Query_RootTranslation_AggregateArgs = {
   where?: InputMaybe<Translation_Bool_Exp>;
 };
 
-
 export type Query_RootTranslation_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Query_RootTranslation_CommentArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
@@ -3993,7 +3883,6 @@ export type Query_RootTranslation_CommentArgs = {
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
 
-
 export type Query_RootTranslation_Comment_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4002,11 +3891,9 @@ export type Query_RootTranslation_Comment_AggregateArgs = {
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
 
-
 export type Query_RootTranslation_Comment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootUserArgs = {
   distinct_on?: InputMaybe<Array<User_Select_Column>>;
@@ -4016,7 +3903,6 @@ export type Query_RootUserArgs = {
   where?: InputMaybe<User_Bool_Exp>;
 };
 
-
 export type Query_RootUser_AggregateArgs = {
   distinct_on?: InputMaybe<Array<User_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4025,11 +3911,9 @@ export type Query_RootUser_AggregateArgs = {
   where?: InputMaybe<User_Bool_Exp>;
 };
 
-
 export type Query_RootUser_By_PkArgs = {
   username: Scalars['String'];
 };
-
 
 export type Query_RootUser_PrivateArgs = {
   distinct_on?: InputMaybe<Array<User_Private_Select_Column>>;
@@ -4038,7 +3922,6 @@ export type Query_RootUser_PrivateArgs = {
   order_by?: InputMaybe<Array<User_Private_Order_By>>;
   where?: InputMaybe<User_Private_Bool_Exp>;
 };
-
 
 export type Query_RootUser_Private_AggregateArgs = {
   distinct_on?: InputMaybe<Array<User_Private_Select_Column>>;
@@ -4128,7 +4011,6 @@ export type Subscription_Root = {
   user_private_aggregate: User_Private_Aggregate;
 };
 
-
 export type Subscription_RootEventTypeArgs = {
   distinct_on?: InputMaybe<Array<EventType_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4136,7 +4018,6 @@ export type Subscription_RootEventTypeArgs = {
   order_by?: InputMaybe<Array<EventType_Order_By>>;
   where?: InputMaybe<EventType_Bool_Exp>;
 };
-
 
 export type Subscription_RootEventType_AggregateArgs = {
   distinct_on?: InputMaybe<Array<EventType_Select_Column>>;
@@ -4146,11 +4027,9 @@ export type Subscription_RootEventType_AggregateArgs = {
   where?: InputMaybe<EventType_Bool_Exp>;
 };
 
-
 export type Subscription_RootEventType_By_PkArgs = {
   value: Scalars['String'];
 };
-
 
 export type Subscription_RootEventArgs = {
   distinct_on?: InputMaybe<Array<Event_Select_Column>>;
@@ -4160,7 +4039,6 @@ export type Subscription_RootEventArgs = {
   where?: InputMaybe<Event_Bool_Exp>;
 };
 
-
 export type Subscription_RootEvent_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Event_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4169,11 +4047,9 @@ export type Subscription_RootEvent_AggregateArgs = {
   where?: InputMaybe<Event_Bool_Exp>;
 };
 
-
 export type Subscription_RootEvent_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Subscription_RootLineArgs = {
   distinct_on?: InputMaybe<Array<Line_Select_Column>>;
@@ -4183,7 +4059,6 @@ export type Subscription_RootLineArgs = {
   where?: InputMaybe<Line_Bool_Exp>;
 };
 
-
 export type Subscription_RootLine_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Line_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4192,11 +4067,9 @@ export type Subscription_RootLine_AggregateArgs = {
   where?: InputMaybe<Line_Bool_Exp>;
 };
 
-
 export type Subscription_RootLine_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootLocaleArgs = {
   distinct_on?: InputMaybe<Array<Locale_Select_Column>>;
@@ -4206,7 +4079,6 @@ export type Subscription_RootLocaleArgs = {
   where?: InputMaybe<Locale_Bool_Exp>;
 };
 
-
 export type Subscription_RootLocale_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Locale_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4215,11 +4087,9 @@ export type Subscription_RootLocale_AggregateArgs = {
   where?: InputMaybe<Locale_Bool_Exp>;
 };
 
-
 export type Subscription_RootLocale_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Subscription_RootNotificationArgs = {
   distinct_on?: InputMaybe<Array<Notification_Select_Column>>;
@@ -4229,7 +4099,6 @@ export type Subscription_RootNotificationArgs = {
   where?: InputMaybe<Notification_Bool_Exp>;
 };
 
-
 export type Subscription_RootNotification_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Notification_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4238,11 +4107,9 @@ export type Subscription_RootNotification_AggregateArgs = {
   where?: InputMaybe<Notification_Bool_Exp>;
 };
 
-
 export type Subscription_RootNotification_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Subscription_RootPassword_ResetArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Select_Column>>;
@@ -4252,7 +4119,6 @@ export type Subscription_RootPassword_ResetArgs = {
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
 
-
 export type Subscription_RootPassword_Reset_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4261,11 +4127,9 @@ export type Subscription_RootPassword_Reset_AggregateArgs = {
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
 
-
 export type Subscription_RootPassword_Reset_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Subscription_RootProjectArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
@@ -4275,7 +4139,6 @@ export type Subscription_RootProjectArgs = {
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4284,11 +4147,9 @@ export type Subscription_RootProject_AggregateArgs = {
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProject_LocaleArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
@@ -4298,7 +4159,6 @@ export type Subscription_RootProject_LocaleArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_Locale_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Locale_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4307,11 +4167,9 @@ export type Subscription_RootProject_Locale_AggregateArgs = {
   where?: InputMaybe<Project_Locale_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_Locale_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootProject_UserArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
@@ -4321,7 +4179,6 @@ export type Subscription_RootProject_UserArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_User_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4330,11 +4187,9 @@ export type Subscription_RootProject_User_AggregateArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_User_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootTranslationArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -4344,7 +4199,6 @@ export type Subscription_RootTranslationArgs = {
   where?: InputMaybe<Translation_Bool_Exp>;
 };
 
-
 export type Subscription_RootTranslation_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4353,11 +4207,9 @@ export type Subscription_RootTranslation_AggregateArgs = {
   where?: InputMaybe<Translation_Bool_Exp>;
 };
 
-
 export type Subscription_RootTranslation_By_PkArgs = {
   id: Scalars['bigint'];
 };
-
 
 export type Subscription_RootTranslation_CommentArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
@@ -4367,7 +4219,6 @@ export type Subscription_RootTranslation_CommentArgs = {
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
 
-
 export type Subscription_RootTranslation_Comment_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4376,11 +4227,9 @@ export type Subscription_RootTranslation_Comment_AggregateArgs = {
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
 
-
 export type Subscription_RootTranslation_Comment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootUserArgs = {
   distinct_on?: InputMaybe<Array<User_Select_Column>>;
@@ -4390,7 +4239,6 @@ export type Subscription_RootUserArgs = {
   where?: InputMaybe<User_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_AggregateArgs = {
   distinct_on?: InputMaybe<Array<User_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4399,11 +4247,9 @@ export type Subscription_RootUser_AggregateArgs = {
   where?: InputMaybe<User_Bool_Exp>;
 };
 
-
 export type Subscription_RootUser_By_PkArgs = {
   username: Scalars['String'];
 };
-
 
 export type Subscription_RootUser_PrivateArgs = {
   distinct_on?: InputMaybe<Array<User_Private_Select_Column>>;
@@ -4412,7 +4258,6 @@ export type Subscription_RootUser_PrivateArgs = {
   order_by?: InputMaybe<Array<User_Private_Order_By>>;
   where?: InputMaybe<User_Private_Bool_Exp>;
 };
-
 
 export type Subscription_RootUser_Private_AggregateArgs = {
   distinct_on?: InputMaybe<Array<User_Private_Select_Column>>;
@@ -4464,7 +4309,6 @@ export type Translation = {
   value?: Maybe<Scalars['String']>;
 };
 
-
 /** All of the translations are stored here with a ref to their locale */
 export type TranslationTranslation_CommentsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
@@ -4473,7 +4317,6 @@ export type TranslationTranslation_CommentsArgs = {
   order_by?: InputMaybe<Array<Translation_Comment_Order_By>>;
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
-
 
 /** All of the translations are stored here with a ref to their locale */
 export type TranslationTranslation_Comments_AggregateArgs = {
@@ -4506,7 +4349,6 @@ export type Translation_Aggregate_Fields = {
   var_samp?: Maybe<Translation_Var_Samp_Fields>;
   variance?: Maybe<Translation_Variance_Fields>;
 };
-
 
 /** aggregate fields of "translation" */
 export type Translation_Aggregate_FieldsCountArgs = {
@@ -4615,7 +4457,6 @@ export type Translation_Comment_Aggregate_Fields = {
   variance?: Maybe<Translation_Comment_Variance_Fields>;
 };
 
-
 /** aggregate fields of "translation_comment" */
 export type Translation_Comment_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Translation_Comment_Select_Column>>;
@@ -4675,7 +4516,7 @@ export type Translation_Comment_Bool_Exp = {
 /** unique or primary key constraints on table "translation_comment" */
 export enum Translation_Comment_Constraint {
   /** unique or primary key constraint */
-  TranslationCommentPk = 'translation_comment_pk'
+  TranslationCommentPk = 'translation_comment_pk',
 }
 
 /** input type for incrementing numeric columns in table "translation_comment" */
@@ -4784,7 +4625,7 @@ export enum Translation_Comment_Select_Column {
   /** column name */
   UpdatedAt = 'updated_at',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** input type for updating data in table "translation_comment" */
@@ -4862,7 +4703,7 @@ export enum Translation_Comment_Update_Column {
   /** column name */
   UpdatedAt = 'updated_at',
   /** column name */
-  UserUsername = 'user_username'
+  UserUsername = 'user_username',
 }
 
 /** aggregate var_pop on columns */
@@ -4907,7 +4748,7 @@ export type Translation_Comment_Variance_Order_By = {
 /** unique or primary key constraints on table "translation" */
 export enum Translation_Constraint {
   /** unique or primary key constraint */
-  TranslationPkey = 'translation_pkey'
+  TranslationPkey = 'translation_pkey',
 }
 
 /** input type for incrementing numeric columns in table "translation" */
@@ -5069,7 +4910,7 @@ export enum Translation_Select_Column {
   /** column name */
   UserUsername = 'user_username',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** input type for updating data in table "translation" */
@@ -5189,7 +5030,7 @@ export enum Translation_Update_Column {
   /** column name */
   UserUsername = 'user_username',
   /** column name */
-  Value = 'value'
+  Value = 'value',
 }
 
 /** aggregate var_pop on columns */
@@ -5313,7 +5154,6 @@ export type User = {
   username: Scalars['String'];
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserEventsArgs = {
   distinct_on?: InputMaybe<Array<Event_Select_Column>>;
@@ -5322,7 +5162,6 @@ export type UserEventsArgs = {
   order_by?: InputMaybe<Array<Event_Order_By>>;
   where?: InputMaybe<Event_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserEvents_AggregateArgs = {
@@ -5333,7 +5172,6 @@ export type UserEvents_AggregateArgs = {
   where?: InputMaybe<Event_Bool_Exp>;
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserNotificationsArgs = {
   distinct_on?: InputMaybe<Array<Notification_Select_Column>>;
@@ -5342,7 +5180,6 @@ export type UserNotificationsArgs = {
   order_by?: InputMaybe<Array<Notification_Order_By>>;
   where?: InputMaybe<Notification_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserNotifications_AggregateArgs = {
@@ -5353,7 +5190,6 @@ export type UserNotifications_AggregateArgs = {
   where?: InputMaybe<Notification_Bool_Exp>;
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserPassword_ResetsArgs = {
   distinct_on?: InputMaybe<Array<Password_Reset_Select_Column>>;
@@ -5362,7 +5198,6 @@ export type UserPassword_ResetsArgs = {
   order_by?: InputMaybe<Array<Password_Reset_Order_By>>;
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserPassword_Resets_AggregateArgs = {
@@ -5373,7 +5208,6 @@ export type UserPassword_Resets_AggregateArgs = {
   where?: InputMaybe<Password_Reset_Bool_Exp>;
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserProject_UsersArgs = {
   distinct_on?: InputMaybe<Array<Project_User_Select_Column>>;
@@ -5382,7 +5216,6 @@ export type UserProject_UsersArgs = {
   order_by?: InputMaybe<Array<Project_User_Order_By>>;
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserProject_Users_AggregateArgs = {
@@ -5393,7 +5226,6 @@ export type UserProject_Users_AggregateArgs = {
   where?: InputMaybe<Project_User_Bool_Exp>;
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserTranslation_CommentsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Comment_Select_Column>>;
@@ -5402,7 +5234,6 @@ export type UserTranslation_CommentsArgs = {
   order_by?: InputMaybe<Array<Translation_Comment_Order_By>>;
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserTranslation_Comments_AggregateArgs = {
@@ -5413,7 +5244,6 @@ export type UserTranslation_Comments_AggregateArgs = {
   where?: InputMaybe<Translation_Comment_Bool_Exp>;
 };
 
-
 /** This is the table of all the users of the application along with their data. */
 export type UserTranslationsArgs = {
   distinct_on?: InputMaybe<Array<Translation_Select_Column>>;
@@ -5422,7 +5252,6 @@ export type UserTranslationsArgs = {
   order_by?: InputMaybe<Array<Translation_Order_By>>;
   where?: InputMaybe<Translation_Bool_Exp>;
 };
-
 
 /** This is the table of all the users of the application along with their data. */
 export type UserTranslations_AggregateArgs = {
@@ -5455,7 +5284,6 @@ export type User_Aggregate_Fields = {
   var_samp?: Maybe<User_Var_Samp_Fields>;
   variance?: Maybe<User_Variance_Fields>;
 };
-
 
 /** aggregate fields of "user" */
 export type User_Aggregate_FieldsCountArgs = {
@@ -5507,7 +5335,7 @@ export enum User_Constraint {
   /** unique or primary key constraint */
   UserNameKey = 'user_name_key',
   /** unique or primary key constraint */
-  UserPkey = 'user_pkey'
+  UserPkey = 'user_pkey',
 }
 
 /** input type for incrementing numeric columns in table "user" */
@@ -5690,7 +5518,6 @@ export type User_Private_Aggregate_Fields = {
   min?: Maybe<User_Private_Min_Fields>;
 };
 
-
 /** aggregate fields of "user_private" */
 export type User_Private_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<User_Private_Select_Column>>;
@@ -5751,7 +5578,7 @@ export enum User_Private_Select_Column {
   /** column name */
   Password = 'password',
   /** column name */
-  Username = 'username'
+  Username = 'username',
 }
 
 /** input type for updating data in table "user_private" */
@@ -5791,7 +5618,7 @@ export enum User_Select_Column {
   /** column name */
   UpdatedAt = 'updated_at',
   /** column name */
-  Username = 'username'
+  Username = 'username',
 }
 
 /** input type for updating data in table "user" */
@@ -5880,7 +5707,7 @@ export enum User_Update_Column {
   /** column name */
   UpdatedAt = 'updated_at',
   /** column name */
-  Username = 'username'
+  Username = 'username',
 }
 
 /** aggregate var_pop on columns */
@@ -5901,6 +5728,16 @@ export type User_Variance_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+export type PersonnelDataFragment = {
+  __typename?: 'user';
+  cell: string;
+  city: string;
+  country: string;
+  first_name: string;
+  job_title: string;
+  last_name: string;
+};
+
 export type InsertEventMutationVariables = Exact<{
   event_type?: InputMaybe<EventType_Enum>;
   meta?: InputMaybe<Scalars['jsonb']>;
@@ -5909,76 +5746,117 @@ export type InsertEventMutationVariables = Exact<{
   entity_id?: InputMaybe<Scalars['Int']>;
 }>;
 
-
-export type InsertEventMutation = { __typename?: 'mutation_root', insert_event_one?: { __typename?: 'event', id: any, created_at: any } | null };
+export type InsertEventMutation = {
+  __typename?: 'mutation_root';
+  insert_event_one?: { __typename?: 'event'; id: any; created_at: any } | null;
+};
 
 export type InsertPasswordResetTokenMutationVariables = Exact<{
   token?: InputMaybe<Scalars['String']>;
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type InsertPasswordResetTokenMutation = { __typename?: 'mutation_root', insert_password_reset_one?: { __typename?: 'password_reset', token: string, valid_till: any, created_at: any, id: any } | null };
+export type InsertPasswordResetTokenMutation = {
+  __typename?: 'mutation_root';
+  insert_password_reset_one?: {
+    __typename?: 'password_reset';
+    token: string;
+    valid_till: any;
+    created_at: any;
+    id: any;
+  } | null;
+};
 
 export type DeleteOldPasswordTokensMutationVariables = Exact<{
   _lt1?: InputMaybe<Scalars['timestamptz']>;
 }>;
 
-
-export type DeleteOldPasswordTokensMutation = { __typename?: 'mutation_root', delete_password_reset?: { __typename?: 'password_reset_mutation_response', affected_rows: number } | null };
+export type DeleteOldPasswordTokensMutation = {
+  __typename?: 'mutation_root';
+  delete_password_reset?: {
+    __typename?: 'password_reset_mutation_response';
+    affected_rows: number;
+  } | null;
+};
 
 export type UpdateUserThemeMutationVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
   theme_name?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type UpdateUserThemeMutation = { __typename?: 'mutation_root', update_user?: { __typename?: 'user_mutation_response', returning: Array<{ __typename?: 'user', theme_name: string }> } | null };
+export type UpdateUserThemeMutation = {
+  __typename?: 'mutation_root';
+  update_user?: {
+    __typename?: 'user_mutation_response';
+    returning: Array<{ __typename?: 'user'; theme_name: string }>;
+  } | null;
+};
 
 export type RegisterUserMutationVariables = Exact<{
   user?: InputMaybe<User_Insert_Input>;
 }>;
 
-
-export type RegisterUserMutation = { __typename?: 'mutation_root', insert_user_one?: { __typename?: 'user', username: string, avatar: string, active: boolean } | null };
+export type RegisterUserMutation = {
+  __typename?: 'mutation_root';
+  insert_user_one?: {
+    __typename?: 'user';
+    username: string;
+    avatar: string;
+    active: boolean;
+  } | null;
+};
 
 export type UpdateUserPasswordMutationVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type UpdateUserPasswordMutation = { __typename?: 'mutation_root', update_user_by_pk?: { __typename?: 'user', updated_at: any } | null };
+export type UpdateUserPasswordMutation = {
+  __typename?: 'mutation_root';
+  update_user_by_pk?: { __typename?: 'user'; updated_at: any } | null;
+};
 
 export type UpdateUserActiveMutationVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
   active?: InputMaybe<Scalars['Boolean']>;
 }>;
 
-
-export type UpdateUserActiveMutation = { __typename?: 'mutation_root', update_user_by_pk?: { __typename?: 'user', active: boolean } | null };
+export type UpdateUserActiveMutation = {
+  __typename?: 'mutation_root';
+  update_user_by_pk?: { __typename?: 'user'; active: boolean } | null;
+};
 
 export type LocaleNameByLocaleCodeQueryVariables = Exact<{
   localeCode?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type LocaleNameByLocaleCodeQuery = { __typename?: 'query_root', locale: Array<{ __typename?: 'locale', name: string }> };
+export type LocaleNameByLocaleCodeQuery = {
+  __typename?: 'query_root';
+  locale: Array<{ __typename?: 'locale'; name: string }>;
+};
 
 export type AllLocalesListQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
-
-export type AllLocalesListQuery = { __typename?: 'query_root', locale: Array<{ __typename?: 'locale', name: string, locale: string }> };
+export type AllLocalesListQuery = {
+  __typename?: 'query_root';
+  locale: Array<{ __typename?: 'locale'; name: string; locale: string }>;
+};
 
 export type DoesTokenExistQueryVariables = Exact<{
   token?: InputMaybe<Scalars['String']>;
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type DoesTokenExistQuery = { __typename?: 'query_root', password_reset: Array<{ __typename?: 'password_reset', valid_till: any, user: { __typename?: 'user', email: string, username: string } }> };
+export type DoesTokenExistQuery = {
+  __typename?: 'query_root';
+  password_reset: Array<{
+    __typename?: 'password_reset';
+    valid_till: any;
+    user: { __typename?: 'user'; email: string; username: string };
+  }>;
+};
 
 export type AllProjectsListQueryVariables = Exact<{
   order_by?: InputMaybe<Array<Project_Order_By> | Project_Order_By>;
@@ -5987,90 +5865,205 @@ export type AllProjectsListQueryVariables = Exact<{
   name_regex?: InputMaybe<Scalars['String']>;
 }>;
 
+export type AllProjectsListQuery = {
+  __typename?: 'query_root';
+  project: Array<{
+    __typename?: 'project';
+    id: number;
+    name: string;
+    description: string;
+    created_at: any;
+    slug: string;
+    lines_aggregate: {
+      __typename?: 'line_aggregate';
+      aggregate?: {
+        __typename?: 'line_aggregate_fields';
+        count: number;
+      } | null;
+    };
+    translations_aggregate: {
+      __typename?: 'translation_aggregate';
+      aggregate?: {
+        __typename?: 'translation_aggregate_fields';
+        count: number;
+      } | null;
+    };
+  }>;
+};
 
-export type AllProjectsListQuery = { __typename?: 'query_root', project: Array<{ __typename?: 'project', id: number, name: string, description: string, created_at: any, lines_aggregate: { __typename?: 'line_aggregate', aggregate?: { __typename?: 'line_aggregate_fields', count: number } | null }, translations_aggregate: { __typename?: 'translation_aggregate', aggregate?: { __typename?: 'translation_aggregate_fields', count: number } | null } }> };
+export type ProjectBySlugQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+export type ProjectBySlugQuery = {
+  __typename?: 'query_root';
+  project: Array<{
+    __typename?: 'project';
+    created_at: any;
+    description: string;
+    id: number;
+    name: string;
+  }>;
+};
 
 export type TranslationsByProjectIdAndLocaleQueryVariables = Exact<{
   project_id?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type TranslationsByProjectIdAndLocaleQuery = { __typename?: 'query_root', translation: Array<{ __typename?: 'translation', value?: string | null, id: any, line: { __typename?: 'line', key: string } }> };
+export type TranslationsByProjectIdAndLocaleQuery = {
+  __typename?: 'query_root';
+  translation: Array<{
+    __typename?: 'translation';
+    value?: string | null;
+    id: any;
+    line: { __typename?: 'line'; key: string };
+  }>;
+};
 
 export type GetUserSessionDataQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type GetUserSessionDataQuery = { __typename?: 'query_root', user?: { __typename?: 'user', id: number, first_name: string, last_name: string, email: string, theme_name: string, username: string, avatar: string } | null };
+export type GetUserSessionDataQuery = {
+  __typename?: 'query_root';
+  user?: {
+    __typename?: 'user';
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    theme_name: string;
+    username: string;
+    avatar: string;
+  } | null;
+};
 
 export type GetUserSettingsQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type GetUserSettingsQuery = { __typename?: 'query_root', user?: { __typename?: 'user', active: boolean, avatar: string, email: string, theme_name: string, username: string } | null };
+export type GetUserSettingsQuery = {
+  __typename?: 'query_root';
+  user?: {
+    __typename?: 'user';
+    active: boolean;
+    avatar: string;
+    email: string;
+    theme_name: string;
+    username: string;
+  } | null;
+};
 
 export type GetUserThemeQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type GetUserThemeQuery = { __typename?: 'query_root', user?: { __typename?: 'user', theme_name: string } | null };
-
-export type PersonnelDataFragment = { __typename?: 'user', cell: string, city: string, country: string, first_name: string, job_title: string, last_name: string };
+export type GetUserThemeQuery = {
+  __typename?: 'query_root';
+  user?: { __typename?: 'user'; theme_name: string } | null;
+};
 
 export type GetUserDataAllQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type GetUserDataAllQuery = { __typename?: 'query_root', user?: { __typename?: 'user', theme_name: string, active: boolean, username: string, created_at: any, updated_at: any, avatar: string, email: string, cell: string, city: string, country: string, first_name: string, job_title: string, last_name: string } | null };
+export type GetUserDataAllQuery = {
+  __typename?: 'query_root';
+  user?: {
+    __typename?: 'user';
+    theme_name: string;
+    active: boolean;
+    username: string;
+    created_at: any;
+    updated_at: any;
+    avatar: string;
+    email: string;
+    cell: string;
+    city: string;
+    country: string;
+    first_name: string;
+    job_title: string;
+    last_name: string;
+  } | null;
+};
 
 export type DoesUserExistQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type DoesUserExistQuery = { __typename?: 'query_root', user: Array<{ __typename?: 'user', username: string, email: string }> };
+export type DoesUserExistQuery = {
+  __typename?: 'query_root';
+  user: Array<{ __typename?: 'user'; username: string; email: string }>;
+};
 
 export type GetUserPasswordQueryVariables = Exact<{
   username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type GetUserPasswordQuery = { __typename?: 'query_root', user?: { __typename?: 'user', username: string, email: string, password: string } | null };
+export type GetUserPasswordQuery = {
+  __typename?: 'query_root';
+  user?: {
+    __typename?: 'user';
+    username: string;
+    email: string;
+    password: string;
+  } | null;
+};
 
 export type EventsByUserUsernameSubscriptionVariables = Exact<{
   user_username?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type EventsByUserUsernameSubscription = { __typename?: 'subscription_root', event: Array<{ __typename?: 'event', meta?: any | null, event_type: EventType_Enum, created_at: any, summary: string, id: any }> };
+export type EventsByUserUsernameSubscription = {
+  __typename?: 'subscription_root';
+  event: Array<{
+    __typename?: 'event';
+    meta?: any | null;
+    event_type: EventType_Enum;
+    created_at: any;
+    summary: string;
+    id: any;
+  }>;
+};
 
 export const PersonnelDataFragmentDoc = gql`
-    fragment PersonnelData on user {
-  cell
-  city
-  country
-  first_name
-  job_title
-  last_name
-}
-    `;
-export const InsertEventDocument = gql`
-    mutation InsertEvent($event_type: EventType_enum = ENTITY_CLASS_CREATE, $meta: jsonb = "", $summary: String = "", $user_username: String = "", $entity_id: Int = -1) {
-  insert_event_one(
-    object: {event_type: $event_type, meta: $meta, summary: $summary, user_username: $user_username, entity_id: $entity_id}
-  ) {
-    id
-    created_at
+  fragment PersonnelData on user {
+    cell
+    city
+    country
+    first_name
+    job_title
+    last_name
   }
-}
-    `;
-export type InsertEventMutationFn = Apollo.MutationFunction<InsertEventMutation, InsertEventMutationVariables>;
+`;
+export const InsertEventDocument = gql`
+  mutation InsertEvent(
+    $event_type: EventType_enum = ENTITY_CLASS_CREATE
+    $meta: jsonb = ""
+    $summary: String = ""
+    $user_username: String = ""
+    $entity_id: Int = -1
+  ) {
+    insert_event_one(
+      object: {
+        event_type: $event_type
+        meta: $meta
+        summary: $summary
+        user_username: $user_username
+        entity_id: $entity_id
+      }
+    ) {
+      id
+      created_at
+    }
+  }
+`;
+export type InsertEventMutationFn = Apollo.MutationFunction<
+  InsertEventMutation,
+  InsertEventMutationVariables
+>;
 
 /**
  * __useInsertEventMutation__
@@ -6093,24 +6086,46 @@ export type InsertEventMutationFn = Apollo.MutationFunction<InsertEventMutation,
  *   },
  * });
  */
-export function useInsertEventMutation(baseOptions?: Apollo.MutationHookOptions<InsertEventMutation, InsertEventMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<InsertEventMutation, InsertEventMutationVariables>(InsertEventDocument, options);
-      }
-export type InsertEventMutationHookResult = ReturnType<typeof useInsertEventMutation>;
-export type InsertEventMutationResult = Apollo.MutationResult<InsertEventMutation>;
-export type InsertEventMutationOptions = Apollo.BaseMutationOptions<InsertEventMutation, InsertEventMutationVariables>;
-export const InsertPasswordResetTokenDocument = gql`
-    mutation InsertPasswordResetToken($token: String = "", $username: String = "") {
-  insert_password_reset_one(object: {token: $token, user_username: $username}) {
-    token
-    valid_till
-    created_at
-    id
-  }
+export function useInsertEventMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    InsertEventMutation,
+    InsertEventMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<InsertEventMutation, InsertEventMutationVariables>(
+    InsertEventDocument,
+    options,
+  );
 }
-    `;
-export type InsertPasswordResetTokenMutationFn = Apollo.MutationFunction<InsertPasswordResetTokenMutation, InsertPasswordResetTokenMutationVariables>;
+export type InsertEventMutationHookResult = ReturnType<
+  typeof useInsertEventMutation
+>;
+export type InsertEventMutationResult =
+  Apollo.MutationResult<InsertEventMutation>;
+export type InsertEventMutationOptions = Apollo.BaseMutationOptions<
+  InsertEventMutation,
+  InsertEventMutationVariables
+>;
+export const InsertPasswordResetTokenDocument = gql`
+  mutation InsertPasswordResetToken(
+    $token: String = ""
+    $username: String = ""
+  ) {
+    insert_password_reset_one(
+      object: { token: $token, user_username: $username }
+    ) {
+      token
+      valid_till
+      created_at
+      id
+    }
+  }
+`;
+export type InsertPasswordResetTokenMutationFn = Apollo.MutationFunction<
+  InsertPasswordResetTokenMutation,
+  InsertPasswordResetTokenMutationVariables
+>;
 
 /**
  * __useInsertPasswordResetTokenMutation__
@@ -6130,21 +6145,39 @@ export type InsertPasswordResetTokenMutationFn = Apollo.MutationFunction<InsertP
  *   },
  * });
  */
-export function useInsertPasswordResetTokenMutation(baseOptions?: Apollo.MutationHookOptions<InsertPasswordResetTokenMutation, InsertPasswordResetTokenMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<InsertPasswordResetTokenMutation, InsertPasswordResetTokenMutationVariables>(InsertPasswordResetTokenDocument, options);
-      }
-export type InsertPasswordResetTokenMutationHookResult = ReturnType<typeof useInsertPasswordResetTokenMutation>;
-export type InsertPasswordResetTokenMutationResult = Apollo.MutationResult<InsertPasswordResetTokenMutation>;
-export type InsertPasswordResetTokenMutationOptions = Apollo.BaseMutationOptions<InsertPasswordResetTokenMutation, InsertPasswordResetTokenMutationVariables>;
-export const DeleteOldPasswordTokensDocument = gql`
-    mutation DeleteOldPasswordTokens($_lt1: timestamptz = "") {
-  delete_password_reset(where: {created_at: {_lt: $_lt1}}) {
-    affected_rows
-  }
+export function useInsertPasswordResetTokenMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    InsertPasswordResetTokenMutation,
+    InsertPasswordResetTokenMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    InsertPasswordResetTokenMutation,
+    InsertPasswordResetTokenMutationVariables
+  >(InsertPasswordResetTokenDocument, options);
 }
-    `;
-export type DeleteOldPasswordTokensMutationFn = Apollo.MutationFunction<DeleteOldPasswordTokensMutation, DeleteOldPasswordTokensMutationVariables>;
+export type InsertPasswordResetTokenMutationHookResult = ReturnType<
+  typeof useInsertPasswordResetTokenMutation
+>;
+export type InsertPasswordResetTokenMutationResult =
+  Apollo.MutationResult<InsertPasswordResetTokenMutation>;
+export type InsertPasswordResetTokenMutationOptions =
+  Apollo.BaseMutationOptions<
+    InsertPasswordResetTokenMutation,
+    InsertPasswordResetTokenMutationVariables
+  >;
+export const DeleteOldPasswordTokensDocument = gql`
+  mutation DeleteOldPasswordTokens($_lt1: timestamptz = "") {
+    delete_password_reset(where: { created_at: { _lt: $_lt1 } }) {
+      affected_rows
+    }
+  }
+`;
+export type DeleteOldPasswordTokensMutationFn = Apollo.MutationFunction<
+  DeleteOldPasswordTokensMutation,
+  DeleteOldPasswordTokensMutationVariables
+>;
 
 /**
  * __useDeleteOldPasswordTokensMutation__
@@ -6163,26 +6196,43 @@ export type DeleteOldPasswordTokensMutationFn = Apollo.MutationFunction<DeleteOl
  *   },
  * });
  */
-export function useDeleteOldPasswordTokensMutation(baseOptions?: Apollo.MutationHookOptions<DeleteOldPasswordTokensMutation, DeleteOldPasswordTokensMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteOldPasswordTokensMutation, DeleteOldPasswordTokensMutationVariables>(DeleteOldPasswordTokensDocument, options);
-      }
-export type DeleteOldPasswordTokensMutationHookResult = ReturnType<typeof useDeleteOldPasswordTokensMutation>;
-export type DeleteOldPasswordTokensMutationResult = Apollo.MutationResult<DeleteOldPasswordTokensMutation>;
-export type DeleteOldPasswordTokensMutationOptions = Apollo.BaseMutationOptions<DeleteOldPasswordTokensMutation, DeleteOldPasswordTokensMutationVariables>;
+export function useDeleteOldPasswordTokensMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    DeleteOldPasswordTokensMutation,
+    DeleteOldPasswordTokensMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    DeleteOldPasswordTokensMutation,
+    DeleteOldPasswordTokensMutationVariables
+  >(DeleteOldPasswordTokensDocument, options);
+}
+export type DeleteOldPasswordTokensMutationHookResult = ReturnType<
+  typeof useDeleteOldPasswordTokensMutation
+>;
+export type DeleteOldPasswordTokensMutationResult =
+  Apollo.MutationResult<DeleteOldPasswordTokensMutation>;
+export type DeleteOldPasswordTokensMutationOptions = Apollo.BaseMutationOptions<
+  DeleteOldPasswordTokensMutation,
+  DeleteOldPasswordTokensMutationVariables
+>;
 export const UpdateUserThemeDocument = gql`
-    mutation UpdateUserTheme($username: String = "", $theme_name: String = "") {
-  update_user(
-    where: {username: {_eq: $username}}
-    _set: {theme_name: $theme_name}
-  ) {
-    returning {
-      theme_name
+  mutation UpdateUserTheme($username: String = "", $theme_name: String = "") {
+    update_user(
+      where: { username: { _eq: $username } }
+      _set: { theme_name: $theme_name }
+    ) {
+      returning {
+        theme_name
+      }
     }
   }
-}
-    `;
-export type UpdateUserThemeMutationFn = Apollo.MutationFunction<UpdateUserThemeMutation, UpdateUserThemeMutationVariables>;
+`;
+export type UpdateUserThemeMutationFn = Apollo.MutationFunction<
+  UpdateUserThemeMutation,
+  UpdateUserThemeMutationVariables
+>;
 
 /**
  * __useUpdateUserThemeMutation__
@@ -6202,23 +6252,40 @@ export type UpdateUserThemeMutationFn = Apollo.MutationFunction<UpdateUserThemeM
  *   },
  * });
  */
-export function useUpdateUserThemeMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserThemeMutation, UpdateUserThemeMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateUserThemeMutation, UpdateUserThemeMutationVariables>(UpdateUserThemeDocument, options);
-      }
-export type UpdateUserThemeMutationHookResult = ReturnType<typeof useUpdateUserThemeMutation>;
-export type UpdateUserThemeMutationResult = Apollo.MutationResult<UpdateUserThemeMutation>;
-export type UpdateUserThemeMutationOptions = Apollo.BaseMutationOptions<UpdateUserThemeMutation, UpdateUserThemeMutationVariables>;
-export const RegisterUserDocument = gql`
-    mutation RegisterUser($user: user_insert_input = {}) {
-  insert_user_one(object: $user) {
-    username
-    avatar
-    active
-  }
+export function useUpdateUserThemeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateUserThemeMutation,
+    UpdateUserThemeMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    UpdateUserThemeMutation,
+    UpdateUserThemeMutationVariables
+  >(UpdateUserThemeDocument, options);
 }
-    `;
-export type RegisterUserMutationFn = Apollo.MutationFunction<RegisterUserMutation, RegisterUserMutationVariables>;
+export type UpdateUserThemeMutationHookResult = ReturnType<
+  typeof useUpdateUserThemeMutation
+>;
+export type UpdateUserThemeMutationResult =
+  Apollo.MutationResult<UpdateUserThemeMutation>;
+export type UpdateUserThemeMutationOptions = Apollo.BaseMutationOptions<
+  UpdateUserThemeMutation,
+  UpdateUserThemeMutationVariables
+>;
+export const RegisterUserDocument = gql`
+  mutation RegisterUser($user: user_insert_input = {}) {
+    insert_user_one(object: $user) {
+      username
+      avatar
+      active
+    }
+  }
+`;
+export type RegisterUserMutationFn = Apollo.MutationFunction<
+  RegisterUserMutation,
+  RegisterUserMutationVariables
+>;
 
 /**
  * __useRegisterUserMutation__
@@ -6237,24 +6304,41 @@ export type RegisterUserMutationFn = Apollo.MutationFunction<RegisterUserMutatio
  *   },
  * });
  */
-export function useRegisterUserMutation(baseOptions?: Apollo.MutationHookOptions<RegisterUserMutation, RegisterUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<RegisterUserMutation, RegisterUserMutationVariables>(RegisterUserDocument, options);
-      }
-export type RegisterUserMutationHookResult = ReturnType<typeof useRegisterUserMutation>;
-export type RegisterUserMutationResult = Apollo.MutationResult<RegisterUserMutation>;
-export type RegisterUserMutationOptions = Apollo.BaseMutationOptions<RegisterUserMutation, RegisterUserMutationVariables>;
-export const UpdateUserPasswordDocument = gql`
-    mutation UpdateUserPassword($username: String = "", $password: String = "") {
-  update_user_by_pk(
-    pk_columns: {username: $username}
-    _set: {password: $password}
-  ) {
-    updated_at
-  }
+export function useRegisterUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    RegisterUserMutation,
+    RegisterUserMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    RegisterUserMutation,
+    RegisterUserMutationVariables
+  >(RegisterUserDocument, options);
 }
-    `;
-export type UpdateUserPasswordMutationFn = Apollo.MutationFunction<UpdateUserPasswordMutation, UpdateUserPasswordMutationVariables>;
+export type RegisterUserMutationHookResult = ReturnType<
+  typeof useRegisterUserMutation
+>;
+export type RegisterUserMutationResult =
+  Apollo.MutationResult<RegisterUserMutation>;
+export type RegisterUserMutationOptions = Apollo.BaseMutationOptions<
+  RegisterUserMutation,
+  RegisterUserMutationVariables
+>;
+export const UpdateUserPasswordDocument = gql`
+  mutation UpdateUserPassword($username: String = "", $password: String = "") {
+    update_user_by_pk(
+      pk_columns: { username: $username }
+      _set: { password: $password }
+    ) {
+      updated_at
+    }
+  }
+`;
+export type UpdateUserPasswordMutationFn = Apollo.MutationFunction<
+  UpdateUserPasswordMutation,
+  UpdateUserPasswordMutationVariables
+>;
 
 /**
  * __useUpdateUserPasswordMutation__
@@ -6274,21 +6358,41 @@ export type UpdateUserPasswordMutationFn = Apollo.MutationFunction<UpdateUserPas
  *   },
  * });
  */
-export function useUpdateUserPasswordMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserPasswordMutation, UpdateUserPasswordMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateUserPasswordMutation, UpdateUserPasswordMutationVariables>(UpdateUserPasswordDocument, options);
-      }
-export type UpdateUserPasswordMutationHookResult = ReturnType<typeof useUpdateUserPasswordMutation>;
-export type UpdateUserPasswordMutationResult = Apollo.MutationResult<UpdateUserPasswordMutation>;
-export type UpdateUserPasswordMutationOptions = Apollo.BaseMutationOptions<UpdateUserPasswordMutation, UpdateUserPasswordMutationVariables>;
-export const UpdateUserActiveDocument = gql`
-    mutation UpdateUserActive($username: String = "", $active: Boolean = false) {
-  update_user_by_pk(pk_columns: {username: $username}, _set: {active: $active}) {
-    active
-  }
+export function useUpdateUserPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateUserPasswordMutation,
+    UpdateUserPasswordMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    UpdateUserPasswordMutation,
+    UpdateUserPasswordMutationVariables
+  >(UpdateUserPasswordDocument, options);
 }
-    `;
-export type UpdateUserActiveMutationFn = Apollo.MutationFunction<UpdateUserActiveMutation, UpdateUserActiveMutationVariables>;
+export type UpdateUserPasswordMutationHookResult = ReturnType<
+  typeof useUpdateUserPasswordMutation
+>;
+export type UpdateUserPasswordMutationResult =
+  Apollo.MutationResult<UpdateUserPasswordMutation>;
+export type UpdateUserPasswordMutationOptions = Apollo.BaseMutationOptions<
+  UpdateUserPasswordMutation,
+  UpdateUserPasswordMutationVariables
+>;
+export const UpdateUserActiveDocument = gql`
+  mutation UpdateUserActive($username: String = "", $active: Boolean = false) {
+    update_user_by_pk(
+      pk_columns: { username: $username }
+      _set: { active: $active }
+    ) {
+      active
+    }
+  }
+`;
+export type UpdateUserActiveMutationFn = Apollo.MutationFunction<
+  UpdateUserActiveMutation,
+  UpdateUserActiveMutationVariables
+>;
 
 /**
  * __useUpdateUserActiveMutation__
@@ -6308,20 +6412,34 @@ export type UpdateUserActiveMutationFn = Apollo.MutationFunction<UpdateUserActiv
  *   },
  * });
  */
-export function useUpdateUserActiveMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserActiveMutation, UpdateUserActiveMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateUserActiveMutation, UpdateUserActiveMutationVariables>(UpdateUserActiveDocument, options);
-      }
-export type UpdateUserActiveMutationHookResult = ReturnType<typeof useUpdateUserActiveMutation>;
-export type UpdateUserActiveMutationResult = Apollo.MutationResult<UpdateUserActiveMutation>;
-export type UpdateUserActiveMutationOptions = Apollo.BaseMutationOptions<UpdateUserActiveMutation, UpdateUserActiveMutationVariables>;
-export const LocaleNameByLocaleCodeDocument = gql`
-    query LocaleNameByLocaleCode($localeCode: String = "") {
-  locale(where: {locale: {_eq: $localeCode}}) {
-    name
-  }
+export function useUpdateUserActiveMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateUserActiveMutation,
+    UpdateUserActiveMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    UpdateUserActiveMutation,
+    UpdateUserActiveMutationVariables
+  >(UpdateUserActiveDocument, options);
 }
-    `;
+export type UpdateUserActiveMutationHookResult = ReturnType<
+  typeof useUpdateUserActiveMutation
+>;
+export type UpdateUserActiveMutationResult =
+  Apollo.MutationResult<UpdateUserActiveMutation>;
+export type UpdateUserActiveMutationOptions = Apollo.BaseMutationOptions<
+  UpdateUserActiveMutation,
+  UpdateUserActiveMutationVariables
+>;
+export const LocaleNameByLocaleCodeDocument = gql`
+  query LocaleNameByLocaleCode($localeCode: String = "") {
+    locale(where: { locale: { _eq: $localeCode } }) {
+      name
+    }
+  }
+`;
 
 /**
  * __useLocaleNameByLocaleCodeQuery__
@@ -6339,25 +6457,48 @@ export const LocaleNameByLocaleCodeDocument = gql`
  *   },
  * });
  */
-export function useLocaleNameByLocaleCodeQuery(baseOptions?: Apollo.QueryHookOptions<LocaleNameByLocaleCodeQuery, LocaleNameByLocaleCodeQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<LocaleNameByLocaleCodeQuery, LocaleNameByLocaleCodeQueryVariables>(LocaleNameByLocaleCodeDocument, options);
-      }
-export function useLocaleNameByLocaleCodeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LocaleNameByLocaleCodeQuery, LocaleNameByLocaleCodeQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<LocaleNameByLocaleCodeQuery, LocaleNameByLocaleCodeQueryVariables>(LocaleNameByLocaleCodeDocument, options);
-        }
-export type LocaleNameByLocaleCodeQueryHookResult = ReturnType<typeof useLocaleNameByLocaleCodeQuery>;
-export type LocaleNameByLocaleCodeLazyQueryHookResult = ReturnType<typeof useLocaleNameByLocaleCodeLazyQuery>;
-export type LocaleNameByLocaleCodeQueryResult = Apollo.QueryResult<LocaleNameByLocaleCodeQuery, LocaleNameByLocaleCodeQueryVariables>;
-export const AllLocalesListDocument = gql`
-    query AllLocalesList($limit: Int = 50) {
-  locale(limit: $limit) {
-    name
-    locale
-  }
+export function useLocaleNameByLocaleCodeQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    LocaleNameByLocaleCodeQuery,
+    LocaleNameByLocaleCodeQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    LocaleNameByLocaleCodeQuery,
+    LocaleNameByLocaleCodeQueryVariables
+  >(LocaleNameByLocaleCodeDocument, options);
 }
-    `;
+export function useLocaleNameByLocaleCodeLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    LocaleNameByLocaleCodeQuery,
+    LocaleNameByLocaleCodeQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    LocaleNameByLocaleCodeQuery,
+    LocaleNameByLocaleCodeQueryVariables
+  >(LocaleNameByLocaleCodeDocument, options);
+}
+export type LocaleNameByLocaleCodeQueryHookResult = ReturnType<
+  typeof useLocaleNameByLocaleCodeQuery
+>;
+export type LocaleNameByLocaleCodeLazyQueryHookResult = ReturnType<
+  typeof useLocaleNameByLocaleCodeLazyQuery
+>;
+export type LocaleNameByLocaleCodeQueryResult = Apollo.QueryResult<
+  LocaleNameByLocaleCodeQuery,
+  LocaleNameByLocaleCodeQueryVariables
+>;
+export const AllLocalesListDocument = gql`
+  query AllLocalesList($limit: Int = 50) {
+    locale(limit: $limit) {
+      name
+      locale
+    }
+  }
+`;
 
 /**
  * __useAllLocalesListQuery__
@@ -6375,30 +6516,53 @@ export const AllLocalesListDocument = gql`
  *   },
  * });
  */
-export function useAllLocalesListQuery(baseOptions?: Apollo.QueryHookOptions<AllLocalesListQuery, AllLocalesListQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllLocalesListQuery, AllLocalesListQueryVariables>(AllLocalesListDocument, options);
-      }
-export function useAllLocalesListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllLocalesListQuery, AllLocalesListQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllLocalesListQuery, AllLocalesListQueryVariables>(AllLocalesListDocument, options);
-        }
-export type AllLocalesListQueryHookResult = ReturnType<typeof useAllLocalesListQuery>;
-export type AllLocalesListLazyQueryHookResult = ReturnType<typeof useAllLocalesListLazyQuery>;
-export type AllLocalesListQueryResult = Apollo.QueryResult<AllLocalesListQuery, AllLocalesListQueryVariables>;
-export const DoesTokenExistDocument = gql`
-    query DoesTokenExist($token: String = "", $username: String = "") {
-  password_reset(
-    where: {token: {_eq: $token}, user: {username: {_eq: $username}}}
-  ) {
-    user {
-      email
-      username
-    }
-    valid_till
-  }
+export function useAllLocalesListQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    AllLocalesListQuery,
+    AllLocalesListQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<AllLocalesListQuery, AllLocalesListQueryVariables>(
+    AllLocalesListDocument,
+    options,
+  );
 }
-    `;
+export function useAllLocalesListLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    AllLocalesListQuery,
+    AllLocalesListQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<AllLocalesListQuery, AllLocalesListQueryVariables>(
+    AllLocalesListDocument,
+    options,
+  );
+}
+export type AllLocalesListQueryHookResult = ReturnType<
+  typeof useAllLocalesListQuery
+>;
+export type AllLocalesListLazyQueryHookResult = ReturnType<
+  typeof useAllLocalesListLazyQuery
+>;
+export type AllLocalesListQueryResult = Apollo.QueryResult<
+  AllLocalesListQuery,
+  AllLocalesListQueryVariables
+>;
+export const DoesTokenExistDocument = gql`
+  query DoesTokenExist($token: String = "", $username: String = "") {
+    password_reset(
+      where: { token: { _eq: $token }, user: { username: { _eq: $username } } }
+    ) {
+      user {
+        email
+        username
+      }
+      valid_till
+    }
+  }
+`;
 
 /**
  * __useDoesTokenExistQuery__
@@ -6417,42 +6581,71 @@ export const DoesTokenExistDocument = gql`
  *   },
  * });
  */
-export function useDoesTokenExistQuery(baseOptions?: Apollo.QueryHookOptions<DoesTokenExistQuery, DoesTokenExistQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<DoesTokenExistQuery, DoesTokenExistQueryVariables>(DoesTokenExistDocument, options);
-      }
-export function useDoesTokenExistLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DoesTokenExistQuery, DoesTokenExistQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<DoesTokenExistQuery, DoesTokenExistQueryVariables>(DoesTokenExistDocument, options);
-        }
-export type DoesTokenExistQueryHookResult = ReturnType<typeof useDoesTokenExistQuery>;
-export type DoesTokenExistLazyQueryHookResult = ReturnType<typeof useDoesTokenExistLazyQuery>;
-export type DoesTokenExistQueryResult = Apollo.QueryResult<DoesTokenExistQuery, DoesTokenExistQueryVariables>;
+export function useDoesTokenExistQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    DoesTokenExistQuery,
+    DoesTokenExistQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<DoesTokenExistQuery, DoesTokenExistQueryVariables>(
+    DoesTokenExistDocument,
+    options,
+  );
+}
+export function useDoesTokenExistLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    DoesTokenExistQuery,
+    DoesTokenExistQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<DoesTokenExistQuery, DoesTokenExistQueryVariables>(
+    DoesTokenExistDocument,
+    options,
+  );
+}
+export type DoesTokenExistQueryHookResult = ReturnType<
+  typeof useDoesTokenExistQuery
+>;
+export type DoesTokenExistLazyQueryHookResult = ReturnType<
+  typeof useDoesTokenExistLazyQuery
+>;
+export type DoesTokenExistQueryResult = Apollo.QueryResult<
+  DoesTokenExistQuery,
+  DoesTokenExistQueryVariables
+>;
 export const AllProjectsListDocument = gql`
-    query AllProjectsList($order_by: [project_order_by!] = {name: asc}, $limit: Int = 10, $offset: Int = 0, $name_regex: String = ".*") {
-  project(
-    order_by: $order_by
-    limit: $limit
-    offset: $offset
-    where: {name: {_iregex: $name_regex}}
+  query AllProjectsList(
+    $order_by: [project_order_by!] = { name: asc }
+    $limit: Int = 10
+    $offset: Int = 0
+    $name_regex: String = ".*"
   ) {
-    id
-    name
-    description
-    created_at
-    lines_aggregate {
-      aggregate {
-        count
+    project(
+      order_by: $order_by
+      limit: $limit
+      offset: $offset
+      where: { name: { _iregex: $name_regex } }
+    ) {
+      id
+      name
+      description
+      created_at
+      slug
+      lines_aggregate {
+        aggregate {
+          count
+        }
       }
-    }
-    translations_aggregate {
-      aggregate {
-        count
+      translations_aggregate {
+        aggregate {
+          count
+        }
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useAllProjectsListQuery__
@@ -6473,30 +6666,120 @@ export const AllProjectsListDocument = gql`
  *   },
  * });
  */
-export function useAllProjectsListQuery(baseOptions?: Apollo.QueryHookOptions<AllProjectsListQuery, AllProjectsListQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllProjectsListQuery, AllProjectsListQueryVariables>(AllProjectsListDocument, options);
-      }
-export function useAllProjectsListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllProjectsListQuery, AllProjectsListQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllProjectsListQuery, AllProjectsListQueryVariables>(AllProjectsListDocument, options);
-        }
-export type AllProjectsListQueryHookResult = ReturnType<typeof useAllProjectsListQuery>;
-export type AllProjectsListLazyQueryHookResult = ReturnType<typeof useAllProjectsListLazyQuery>;
-export type AllProjectsListQueryResult = Apollo.QueryResult<AllProjectsListQuery, AllProjectsListQueryVariables>;
-export const TranslationsByProjectIdAndLocaleDocument = gql`
-    query TranslationsByProjectIDAndLocale($project_id: Int = -1, $locale: String = "en_US") {
-  translation(
-    where: {project_id: {_eq: $project_id}, locale: {locale: {_eq: $locale}}}
-  ) {
-    line {
-      key
-    }
-    value
-    id
-  }
+export function useAllProjectsListQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    AllProjectsListQuery,
+    AllProjectsListQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<AllProjectsListQuery, AllProjectsListQueryVariables>(
+    AllProjectsListDocument,
+    options,
+  );
 }
-    `;
+export function useAllProjectsListLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    AllProjectsListQuery,
+    AllProjectsListQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    AllProjectsListQuery,
+    AllProjectsListQueryVariables
+  >(AllProjectsListDocument, options);
+}
+export type AllProjectsListQueryHookResult = ReturnType<
+  typeof useAllProjectsListQuery
+>;
+export type AllProjectsListLazyQueryHookResult = ReturnType<
+  typeof useAllProjectsListLazyQuery
+>;
+export type AllProjectsListQueryResult = Apollo.QueryResult<
+  AllProjectsListQuery,
+  AllProjectsListQueryVariables
+>;
+export const ProjectBySlugDocument = gql`
+  query ProjectBySlug($slug: String = "") {
+    project(where: { slug: { _eq: $slug } }) {
+      created_at
+      description
+      id
+      name
+    }
+  }
+`;
+
+/**
+ * __useProjectBySlugQuery__
+ *
+ * To run a query within a React component, call `useProjectBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProjectBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProjectBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useProjectBySlugQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    ProjectBySlugQuery,
+    ProjectBySlugQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<ProjectBySlugQuery, ProjectBySlugQueryVariables>(
+    ProjectBySlugDocument,
+    options,
+  );
+}
+export function useProjectBySlugLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ProjectBySlugQuery,
+    ProjectBySlugQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<ProjectBySlugQuery, ProjectBySlugQueryVariables>(
+    ProjectBySlugDocument,
+    options,
+  );
+}
+export type ProjectBySlugQueryHookResult = ReturnType<
+  typeof useProjectBySlugQuery
+>;
+export type ProjectBySlugLazyQueryHookResult = ReturnType<
+  typeof useProjectBySlugLazyQuery
+>;
+export type ProjectBySlugQueryResult = Apollo.QueryResult<
+  ProjectBySlugQuery,
+  ProjectBySlugQueryVariables
+>;
+export const TranslationsByProjectIdAndLocaleDocument = gql`
+  query TranslationsByProjectIDAndLocale(
+    $project_id: Int = -1
+    $locale: String = "en_US"
+  ) {
+    translation(
+      where: {
+        project_id: { _eq: $project_id }
+        locale: { locale: { _eq: $locale } }
+      }
+    ) {
+      line {
+        key
+      }
+      value
+      id
+    }
+  }
+`;
 
 /**
  * __useTranslationsByProjectIdAndLocaleQuery__
@@ -6515,30 +6798,53 @@ export const TranslationsByProjectIdAndLocaleDocument = gql`
  *   },
  * });
  */
-export function useTranslationsByProjectIdAndLocaleQuery(baseOptions?: Apollo.QueryHookOptions<TranslationsByProjectIdAndLocaleQuery, TranslationsByProjectIdAndLocaleQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TranslationsByProjectIdAndLocaleQuery, TranslationsByProjectIdAndLocaleQueryVariables>(TranslationsByProjectIdAndLocaleDocument, options);
-      }
-export function useTranslationsByProjectIdAndLocaleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TranslationsByProjectIdAndLocaleQuery, TranslationsByProjectIdAndLocaleQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TranslationsByProjectIdAndLocaleQuery, TranslationsByProjectIdAndLocaleQueryVariables>(TranslationsByProjectIdAndLocaleDocument, options);
-        }
-export type TranslationsByProjectIdAndLocaleQueryHookResult = ReturnType<typeof useTranslationsByProjectIdAndLocaleQuery>;
-export type TranslationsByProjectIdAndLocaleLazyQueryHookResult = ReturnType<typeof useTranslationsByProjectIdAndLocaleLazyQuery>;
-export type TranslationsByProjectIdAndLocaleQueryResult = Apollo.QueryResult<TranslationsByProjectIdAndLocaleQuery, TranslationsByProjectIdAndLocaleQueryVariables>;
-export const GetUserSessionDataDocument = gql`
-    query GetUserSessionData($username: String = "") {
-  user: user_by_pk(username: $username) {
-    id
-    first_name
-    last_name
-    email
-    theme_name
-    username
-    avatar
-  }
+export function useTranslationsByProjectIdAndLocaleQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    TranslationsByProjectIdAndLocaleQuery,
+    TranslationsByProjectIdAndLocaleQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    TranslationsByProjectIdAndLocaleQuery,
+    TranslationsByProjectIdAndLocaleQueryVariables
+  >(TranslationsByProjectIdAndLocaleDocument, options);
 }
-    `;
+export function useTranslationsByProjectIdAndLocaleLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    TranslationsByProjectIdAndLocaleQuery,
+    TranslationsByProjectIdAndLocaleQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    TranslationsByProjectIdAndLocaleQuery,
+    TranslationsByProjectIdAndLocaleQueryVariables
+  >(TranslationsByProjectIdAndLocaleDocument, options);
+}
+export type TranslationsByProjectIdAndLocaleQueryHookResult = ReturnType<
+  typeof useTranslationsByProjectIdAndLocaleQuery
+>;
+export type TranslationsByProjectIdAndLocaleLazyQueryHookResult = ReturnType<
+  typeof useTranslationsByProjectIdAndLocaleLazyQuery
+>;
+export type TranslationsByProjectIdAndLocaleQueryResult = Apollo.QueryResult<
+  TranslationsByProjectIdAndLocaleQuery,
+  TranslationsByProjectIdAndLocaleQueryVariables
+>;
+export const GetUserSessionDataDocument = gql`
+  query GetUserSessionData($username: String = "") {
+    user: user_by_pk(username: $username) {
+      id
+      first_name
+      last_name
+      email
+      theme_name
+      username
+      avatar
+    }
+  }
+`;
 
 /**
  * __useGetUserSessionDataQuery__
@@ -6556,28 +6862,51 @@ export const GetUserSessionDataDocument = gql`
  *   },
  * });
  */
-export function useGetUserSessionDataQuery(baseOptions?: Apollo.QueryHookOptions<GetUserSessionDataQuery, GetUserSessionDataQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserSessionDataQuery, GetUserSessionDataQueryVariables>(GetUserSessionDataDocument, options);
-      }
-export function useGetUserSessionDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserSessionDataQuery, GetUserSessionDataQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserSessionDataQuery, GetUserSessionDataQueryVariables>(GetUserSessionDataDocument, options);
-        }
-export type GetUserSessionDataQueryHookResult = ReturnType<typeof useGetUserSessionDataQuery>;
-export type GetUserSessionDataLazyQueryHookResult = ReturnType<typeof useGetUserSessionDataLazyQuery>;
-export type GetUserSessionDataQueryResult = Apollo.QueryResult<GetUserSessionDataQuery, GetUserSessionDataQueryVariables>;
-export const GetUserSettingsDocument = gql`
-    query GetUserSettings($username: String = "") {
-  user: user_by_pk(username: $username) {
-    active
-    avatar
-    email
-    theme_name
-    username
-  }
+export function useGetUserSessionDataQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserSessionDataQuery,
+    GetUserSessionDataQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetUserSessionDataQuery,
+    GetUserSessionDataQueryVariables
+  >(GetUserSessionDataDocument, options);
 }
-    `;
+export function useGetUserSessionDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserSessionDataQuery,
+    GetUserSessionDataQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetUserSessionDataQuery,
+    GetUserSessionDataQueryVariables
+  >(GetUserSessionDataDocument, options);
+}
+export type GetUserSessionDataQueryHookResult = ReturnType<
+  typeof useGetUserSessionDataQuery
+>;
+export type GetUserSessionDataLazyQueryHookResult = ReturnType<
+  typeof useGetUserSessionDataLazyQuery
+>;
+export type GetUserSessionDataQueryResult = Apollo.QueryResult<
+  GetUserSessionDataQuery,
+  GetUserSessionDataQueryVariables
+>;
+export const GetUserSettingsDocument = gql`
+  query GetUserSettings($username: String = "") {
+    user: user_by_pk(username: $username) {
+      active
+      avatar
+      email
+      theme_name
+      username
+    }
+  }
+`;
 
 /**
  * __useGetUserSettingsQuery__
@@ -6595,24 +6924,47 @@ export const GetUserSettingsDocument = gql`
  *   },
  * });
  */
-export function useGetUserSettingsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserSettingsQuery, GetUserSettingsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserSettingsQuery, GetUserSettingsQueryVariables>(GetUserSettingsDocument, options);
-      }
-export function useGetUserSettingsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserSettingsQuery, GetUserSettingsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserSettingsQuery, GetUserSettingsQueryVariables>(GetUserSettingsDocument, options);
-        }
-export type GetUserSettingsQueryHookResult = ReturnType<typeof useGetUserSettingsQuery>;
-export type GetUserSettingsLazyQueryHookResult = ReturnType<typeof useGetUserSettingsLazyQuery>;
-export type GetUserSettingsQueryResult = Apollo.QueryResult<GetUserSettingsQuery, GetUserSettingsQueryVariables>;
-export const GetUserThemeDocument = gql`
-    query GetUserTheme($username: String = "") {
-  user: user_by_pk(username: $username) {
-    theme_name
-  }
+export function useGetUserSettingsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserSettingsQuery,
+    GetUserSettingsQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserSettingsQuery, GetUserSettingsQueryVariables>(
+    GetUserSettingsDocument,
+    options,
+  );
 }
-    `;
+export function useGetUserSettingsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserSettingsQuery,
+    GetUserSettingsQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetUserSettingsQuery,
+    GetUserSettingsQueryVariables
+  >(GetUserSettingsDocument, options);
+}
+export type GetUserSettingsQueryHookResult = ReturnType<
+  typeof useGetUserSettingsQuery
+>;
+export type GetUserSettingsLazyQueryHookResult = ReturnType<
+  typeof useGetUserSettingsLazyQuery
+>;
+export type GetUserSettingsQueryResult = Apollo.QueryResult<
+  GetUserSettingsQuery,
+  GetUserSettingsQueryVariables
+>;
+export const GetUserThemeDocument = gql`
+  query GetUserTheme($username: String = "") {
+    user: user_by_pk(username: $username) {
+      theme_name
+    }
+  }
+`;
 
 /**
  * __useGetUserThemeQuery__
@@ -6630,31 +6982,55 @@ export const GetUserThemeDocument = gql`
  *   },
  * });
  */
-export function useGetUserThemeQuery(baseOptions?: Apollo.QueryHookOptions<GetUserThemeQuery, GetUserThemeQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserThemeQuery, GetUserThemeQueryVariables>(GetUserThemeDocument, options);
-      }
-export function useGetUserThemeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserThemeQuery, GetUserThemeQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserThemeQuery, GetUserThemeQueryVariables>(GetUserThemeDocument, options);
-        }
-export type GetUserThemeQueryHookResult = ReturnType<typeof useGetUserThemeQuery>;
-export type GetUserThemeLazyQueryHookResult = ReturnType<typeof useGetUserThemeLazyQuery>;
-export type GetUserThemeQueryResult = Apollo.QueryResult<GetUserThemeQuery, GetUserThemeQueryVariables>;
-export const GetUserDataAllDocument = gql`
-    query GetUserDataAll($username: String = "") {
-  user: user_by_pk(username: $username) {
-    theme_name
-    active
-    username
-    created_at
-    updated_at
-    avatar
-    email
-    ...PersonnelData
-  }
+export function useGetUserThemeQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserThemeQuery,
+    GetUserThemeQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserThemeQuery, GetUserThemeQueryVariables>(
+    GetUserThemeDocument,
+    options,
+  );
 }
-    ${PersonnelDataFragmentDoc}`;
+export function useGetUserThemeLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserThemeQuery,
+    GetUserThemeQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUserThemeQuery, GetUserThemeQueryVariables>(
+    GetUserThemeDocument,
+    options,
+  );
+}
+export type GetUserThemeQueryHookResult = ReturnType<
+  typeof useGetUserThemeQuery
+>;
+export type GetUserThemeLazyQueryHookResult = ReturnType<
+  typeof useGetUserThemeLazyQuery
+>;
+export type GetUserThemeQueryResult = Apollo.QueryResult<
+  GetUserThemeQuery,
+  GetUserThemeQueryVariables
+>;
+export const GetUserDataAllDocument = gql`
+  query GetUserDataAll($username: String = "") {
+    user: user_by_pk(username: $username) {
+      theme_name
+      active
+      username
+      created_at
+      updated_at
+      avatar
+      email
+      ...PersonnelData
+    }
+  }
+  ${PersonnelDataFragmentDoc}
+`;
 
 /**
  * __useGetUserDataAllQuery__
@@ -6672,25 +7048,55 @@ export const GetUserDataAllDocument = gql`
  *   },
  * });
  */
-export function useGetUserDataAllQuery(baseOptions?: Apollo.QueryHookOptions<GetUserDataAllQuery, GetUserDataAllQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserDataAllQuery, GetUserDataAllQueryVariables>(GetUserDataAllDocument, options);
-      }
-export function useGetUserDataAllLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserDataAllQuery, GetUserDataAllQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserDataAllQuery, GetUserDataAllQueryVariables>(GetUserDataAllDocument, options);
-        }
-export type GetUserDataAllQueryHookResult = ReturnType<typeof useGetUserDataAllQuery>;
-export type GetUserDataAllLazyQueryHookResult = ReturnType<typeof useGetUserDataAllLazyQuery>;
-export type GetUserDataAllQueryResult = Apollo.QueryResult<GetUserDataAllQuery, GetUserDataAllQueryVariables>;
-export const DoesUserExistDocument = gql`
-    query DoesUserExist($username: String = "", $email: String = "") {
-  user(where: {_or: [{username: {_ilike: $username}}, {email: {_ilike: $email}}]}) {
-    username
-    email
-  }
+export function useGetUserDataAllQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserDataAllQuery,
+    GetUserDataAllQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserDataAllQuery, GetUserDataAllQueryVariables>(
+    GetUserDataAllDocument,
+    options,
+  );
 }
-    `;
+export function useGetUserDataAllLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserDataAllQuery,
+    GetUserDataAllQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUserDataAllQuery, GetUserDataAllQueryVariables>(
+    GetUserDataAllDocument,
+    options,
+  );
+}
+export type GetUserDataAllQueryHookResult = ReturnType<
+  typeof useGetUserDataAllQuery
+>;
+export type GetUserDataAllLazyQueryHookResult = ReturnType<
+  typeof useGetUserDataAllLazyQuery
+>;
+export type GetUserDataAllQueryResult = Apollo.QueryResult<
+  GetUserDataAllQuery,
+  GetUserDataAllQueryVariables
+>;
+export const DoesUserExistDocument = gql`
+  query DoesUserExist($username: String = "", $email: String = "") {
+    user(
+      where: {
+        _or: [
+          { username: { _ilike: $username } }
+          { email: { _ilike: $email } }
+        ]
+      }
+    ) {
+      username
+      email
+    }
+  }
+`;
 
 /**
  * __useDoesUserExistQuery__
@@ -6709,26 +7115,49 @@ export const DoesUserExistDocument = gql`
  *   },
  * });
  */
-export function useDoesUserExistQuery(baseOptions?: Apollo.QueryHookOptions<DoesUserExistQuery, DoesUserExistQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<DoesUserExistQuery, DoesUserExistQueryVariables>(DoesUserExistDocument, options);
-      }
-export function useDoesUserExistLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DoesUserExistQuery, DoesUserExistQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<DoesUserExistQuery, DoesUserExistQueryVariables>(DoesUserExistDocument, options);
-        }
-export type DoesUserExistQueryHookResult = ReturnType<typeof useDoesUserExistQuery>;
-export type DoesUserExistLazyQueryHookResult = ReturnType<typeof useDoesUserExistLazyQuery>;
-export type DoesUserExistQueryResult = Apollo.QueryResult<DoesUserExistQuery, DoesUserExistQueryVariables>;
-export const GetUserPasswordDocument = gql`
-    query GetUserPassword($username: String = "") {
-  user: user_by_pk(username: $username) {
-    username
-    email
-    password
-  }
+export function useDoesUserExistQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    DoesUserExistQuery,
+    DoesUserExistQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<DoesUserExistQuery, DoesUserExistQueryVariables>(
+    DoesUserExistDocument,
+    options,
+  );
 }
-    `;
+export function useDoesUserExistLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    DoesUserExistQuery,
+    DoesUserExistQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<DoesUserExistQuery, DoesUserExistQueryVariables>(
+    DoesUserExistDocument,
+    options,
+  );
+}
+export type DoesUserExistQueryHookResult = ReturnType<
+  typeof useDoesUserExistQuery
+>;
+export type DoesUserExistLazyQueryHookResult = ReturnType<
+  typeof useDoesUserExistLazyQuery
+>;
+export type DoesUserExistQueryResult = Apollo.QueryResult<
+  DoesUserExistQuery,
+  DoesUserExistQueryVariables
+>;
+export const GetUserPasswordDocument = gql`
+  query GetUserPassword($username: String = "") {
+    user: user_by_pk(username: $username) {
+      username
+      email
+      password
+    }
+  }
+`;
 
 /**
  * __useGetUserPasswordQuery__
@@ -6746,28 +7175,51 @@ export const GetUserPasswordDocument = gql`
  *   },
  * });
  */
-export function useGetUserPasswordQuery(baseOptions?: Apollo.QueryHookOptions<GetUserPasswordQuery, GetUserPasswordQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserPasswordQuery, GetUserPasswordQueryVariables>(GetUserPasswordDocument, options);
-      }
-export function useGetUserPasswordLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserPasswordQuery, GetUserPasswordQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserPasswordQuery, GetUserPasswordQueryVariables>(GetUserPasswordDocument, options);
-        }
-export type GetUserPasswordQueryHookResult = ReturnType<typeof useGetUserPasswordQuery>;
-export type GetUserPasswordLazyQueryHookResult = ReturnType<typeof useGetUserPasswordLazyQuery>;
-export type GetUserPasswordQueryResult = Apollo.QueryResult<GetUserPasswordQuery, GetUserPasswordQueryVariables>;
-export const EventsByUserUsernameDocument = gql`
-    subscription EventsByUserUsername($user_username: String = "") {
-  event(where: {user_username: {_eq: $user_username}}) {
-    meta
-    event_type
-    created_at
-    summary
-    id
-  }
+export function useGetUserPasswordQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetUserPasswordQuery,
+    GetUserPasswordQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserPasswordQuery, GetUserPasswordQueryVariables>(
+    GetUserPasswordDocument,
+    options,
+  );
 }
-    `;
+export function useGetUserPasswordLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserPasswordQuery,
+    GetUserPasswordQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetUserPasswordQuery,
+    GetUserPasswordQueryVariables
+  >(GetUserPasswordDocument, options);
+}
+export type GetUserPasswordQueryHookResult = ReturnType<
+  typeof useGetUserPasswordQuery
+>;
+export type GetUserPasswordLazyQueryHookResult = ReturnType<
+  typeof useGetUserPasswordLazyQuery
+>;
+export type GetUserPasswordQueryResult = Apollo.QueryResult<
+  GetUserPasswordQuery,
+  GetUserPasswordQueryVariables
+>;
+export const EventsByUserUsernameDocument = gql`
+  subscription EventsByUserUsername($user_username: String = "") {
+    event(where: { user_username: { _eq: $user_username } }) {
+      meta
+      event_type
+      created_at
+      summary
+      id
+    }
+  }
+`;
 
 /**
  * __useEventsByUserUsernameSubscription__
@@ -6785,20 +7237,30 @@ export const EventsByUserUsernameDocument = gql`
  *   },
  * });
  */
-export function useEventsByUserUsernameSubscription(baseOptions?: Apollo.SubscriptionHookOptions<EventsByUserUsernameSubscription, EventsByUserUsernameSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<EventsByUserUsernameSubscription, EventsByUserUsernameSubscriptionVariables>(EventsByUserUsernameDocument, options);
-      }
-export type EventsByUserUsernameSubscriptionHookResult = ReturnType<typeof useEventsByUserUsernameSubscription>;
-export type EventsByUserUsernameSubscriptionResult = Apollo.SubscriptionResult<EventsByUserUsernameSubscription>;
+export function useEventsByUserUsernameSubscription(
+  baseOptions?: Apollo.SubscriptionHookOptions<
+    EventsByUserUsernameSubscription,
+    EventsByUserUsernameSubscriptionVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useSubscription<
+    EventsByUserUsernameSubscription,
+    EventsByUserUsernameSubscriptionVariables
+  >(EventsByUserUsernameDocument, options);
+}
+export type EventsByUserUsernameSubscriptionHookResult = ReturnType<
+  typeof useEventsByUserUsernameSubscription
+>;
+export type EventsByUserUsernameSubscriptionResult =
+  Apollo.SubscriptionResult<EventsByUserUsernameSubscription>;
 
-      export interface PossibleTypesResultData {
-        possibleTypes: {
-          [key: string]: string[]
-        }
-      }
-      const result: PossibleTypesResultData = {
-  "possibleTypes": {}
+export interface PossibleTypesResultData {
+  possibleTypes: {
+    [key: string]: string[];
+  };
+}
+const result: PossibleTypesResultData = {
+  possibleTypes: {},
 };
-      export default result;
-    
+export default result;

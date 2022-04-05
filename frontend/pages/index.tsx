@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import type { GetServerSideProps, NextPage } from 'next';
-import { getSession } from 'next-auth/react';
 
 import Layout from '@/components/Layout';
+import { authenticatedGetServerSideProps } from '@/features/auth/lib';
 import LocalesList from '@/features/locales/components/LocalesList';
 
 const Main = styled.div`
@@ -21,19 +21,11 @@ const Home: NextPage = (props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getSession(context);
-  if (!session) {
+export const getServerSideProps: GetServerSideProps =
+  authenticatedGetServerSideProps(async (context, session) => {
     return {
-      redirect: {
-        destination: '/api/auth/signin',
-        permanent: false,
+      props: {
+        session,
       },
     };
-  }
-  return {
-    props: {
-      session: await getSession(context),
-    },
-  };
-};
+  });

@@ -11,7 +11,8 @@ import { logEvent } from '@/features/events/lib';
 import {
   DoesUserExistDocument,
   DoesUserExistQuery,
-  EventType_Enum, InsertPasswordResetTokenDocument,
+  EventType_Enum,
+  InsertPasswordResetTokenDocument,
   InsertPasswordResetTokenMutation,
 } from '@/graphql/graphql';
 import { initializeApollo } from '@/lib/apollo';
